@@ -1,3 +1,24 @@
+function distanceToNearestVowel(str) {
+    const vowels = ["a", "e", "i", "o", "u"]
+    const distances = []
+    for (let i = 0; i < str.length; i++) {
+        let found = false
+        let offset = 0
+        while (!found) {
+            if (vowels.includes(str[i-offset]) || vowels.includes(str[i+offset])) {
+                found = true
+                distances.push(offset)
+            }
+            offset += 1
+        }
+        
+    }
+    return distances
+}
+
+console.log(distanceToNearestVowel("hello"))
+
+
 function minSwaps(s1, s2) {
 	let count = 0;
 	for (let i = 0; i < s1.length; i++) {
