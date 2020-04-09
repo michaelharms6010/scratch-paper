@@ -1,10 +1,20 @@
 function checkPattern(arr, pattern) {
     const hash = {}
 	for (let i = 0; i < arr.length; i++) {
-        if (hash[pattern]) {
-            if (arr[i])
+        if (hash[pattern[i]]) {
+            
+            if (!arrayEquals(arr[i], hash[pattern[i]])) return false
+        } else {
+            hash[pattern[i]] = arr[i]
         }
     }
+    let values = Object.values(hash)
+    for (let i = 0; i < values.length; i++) {
+        for (let j = i+1 ; j < values.length; j++) {
+            if (arrayEquals(values[i], values[j])) return false
+        }
+    }
+    return true
 }
 
 function arrayEquals(arr1, arr2) {
