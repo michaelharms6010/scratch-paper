@@ -1,3 +1,24 @@
+function checkPattern(arr, pattern) {
+    const hash = {}
+	for (let i = 0; i < arr.length; i++) {
+        if (hash[pattern]) {
+            if (arr[i])
+        }
+    }
+}
+
+function arrayEquals(arr1, arr2) {
+    if (arr1.length !== arr2.length) return false
+    for (let i = 0; i < arr1.length; i++) {
+        if (arr1[i] !== arr2[i]) return false 
+    }
+    return true
+}
+
+
+console.log(checkPattern([[1, 1], [2, 2], [1, 1], [2, 2]], "ABAB"))
+
+
 function distanceToNearestVowel(str) {
     const vowels = ["a", "e", "i", "o", "u"]
     const distances = []
@@ -16,7 +37,7 @@ function distanceToNearestVowel(str) {
     return distances
 }
 
-console.log(distanceToNearestVowel("hello"))
+
 
 
 function minSwaps(s1, s2) {
