@@ -1,3 +1,13 @@
+function rootDigit(n) {
+	let numarr = String(n).split("").map(item => Number(item))
+	while (numarr.length > 1) {
+		total = numarr.reduce((acc,val) => acc + val, 0)
+		numarr = String(total).split("").map(item => Number(item))
+	}
+	return numarr[0]
+	
+}
+
 function getFrame(w,h,symbol) {
     let output = []
     let border = ""
@@ -20,5 +30,3 @@ function getFrame(w,h,symbol) {
     return output
     
 }
-
-console.log(getFrame(4,4,"#"))
