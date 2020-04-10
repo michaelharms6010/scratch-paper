@@ -1,3 +1,42 @@
+const arr = ["mike", "nina", "jerry", "george","elaine","kramer"]
+
+// how do i print the name "nina" in the given array?
+
+// how do I get the last item of the array?
+
+// how do I add the string "jimmy" to the end of the array?
+
+
+
+const capitalized = arr.map(name => name.toUpperCase())
+
+console.log(capitalized)
+
+const containsI = arr.filter(name => name.includes("i"))
+
+console.log(containsI)
+
+
+
+
+function stripUrlParams(url, paramsToStrip=[]) {
+    if (!url.includes("?")) return url
+	let output = ""
+    let [newurl, query] = url.split("?")
+    output += newurl + "?"
+    let hash = {}
+    queryvars = query.split("&")
+
+    for (let i = 0; i < queryvars.length; i++) {
+        let [key, val] = queryvars[i].split("=")
+        hash[key] = val
+    }
+    paramsToStrip.map(item => delete hash[item])
+    let newQuery = Object.keys(hash).map(key => `${key}=${hash[key]}`).join("&")
+    return output + newQuery
+}
+
+
 const prices = {
 	Strawberries: "$1.50", Banana: "$0.50", Mango: "$2.50",
 	Blueberries: "$1.00", Raspberries: "$1.00", Apple: "$1.75",
@@ -21,13 +60,6 @@ class Smoothie {
     }
 	
 }
-
-let s2 = new Smoothie(["Raspberries", "Strawberries", "Blueberries"])
-let s3 = new Smoothie(["Raspberries"])
-console.log(s2.getPrice())
-console.log(s3.getName())
-
-
 
 function minPalindromeSteps(str) {
     for (let i = 0; i < str.length; i++) {
