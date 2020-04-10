@@ -1,5 +1,29 @@
+console.log(classifyRug([
+    ['a', 'a', 'a', 'a'],
+    ['d', 'a', 'a', 'a']
+  ]))
 
 
+function classifyRug(pattern) {
+	let vertical = true
+	let horizontal = true
+	for (y = 0; y < pattern.length ; y++) {
+		for (x = 0; x < pattern[0].length; x++) {
+            console.log(y, x)
+			if (pattern[y][x] !== pattern[pattern.length-1-y][x]) vertical = false
+			if (pattern[y][x] !== pattern[y][pattern[0].length-1-x]) horizontal = false
+		}
+    }
+    if (vertical && horizontal) {
+        return "perfect"
+    } else if (horizontal) {
+        return "vertically symmetric"
+    } else if (vertical) {
+        return "horizontally symmetric"
+    } else {
+        return "imperfect"
+    }
+}
 
 
 function bucketize(phrase, n) {
