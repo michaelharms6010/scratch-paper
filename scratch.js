@@ -1,7 +1,6 @@
-console.log(classifyRug([
-    ['a', 'a', 'a', 'a'],
-    ['d', 'a', 'a', 'a']
-  ]))
+function minPalindromeSteps(str) {
+	
+}
 
 
 function classifyRug(pattern) {
