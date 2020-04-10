@@ -1,11 +1,16 @@
+
+
+
+
 function bucketize(phrase, n) {
     let bucket = ""
     const output = []
     phrase = phrase.split(" ")
     for (let i = 0; i < phrase.length; i++) {
+        if (phrase[i].length > n) return []
         if (bucket && (bucket + " " + phrase[i]).length <= n) {
             bucket += " " + phrase[i]
-        } else if (bucket.length <= n &&(bucket + " " + phrase[i]).length > n) {
+        } else if ((bucket + " " + phrase[i]).length > n) {
             output.push(bucket)
             bucket = phrase[i]
         } else {
@@ -17,9 +22,6 @@ function bucketize(phrase, n) {
     output.push(bucket)
     return output
 }
-console.log(bucketize("she sells sea shells by the sea", 2))
-
-
 
 function checkPattern(arr, pattern) {
     const hash = {}
