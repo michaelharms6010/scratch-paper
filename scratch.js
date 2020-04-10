@@ -1,3 +1,26 @@
+function bucketize(phrase, n) {
+    let bucket = ""
+    const output = []
+    phrase = phrase.split(" ")
+    for (let i = 0; i < phrase.length; i++) {
+        if (bucket && (bucket + " " + phrase[i]).length <= n) {
+            bucket += " " + phrase[i]
+        } else if (bucket.length <= n &&(bucket + " " + phrase[i]).length > n) {
+            output.push(bucket)
+            bucket = phrase[i]
+        } else {
+            bucket = phrase[i]
+        }
+        
+    }
+    
+    output.push(bucket)
+    return output
+}
+console.log(bucketize("she sells sea shells by the sea", 2))
+
+
+
 function checkPattern(arr, pattern) {
     const hash = {}
 	for (let i = 0; i < arr.length; i++) {
@@ -24,10 +47,6 @@ function arrayEquals(arr1, arr2) {
     }
     return true
 }
-
-
-console.log(checkPattern([[1, 1], [2, 2], [1, 1], [2, 2]], "ABAB"))
-
 
 function distanceToNearestVowel(str) {
     const vowels = ["a", "e", "i", "o", "u"]
