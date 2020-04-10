@@ -1,5 +1,16 @@
 function minPalindromeSteps(str) {
-	
+    for (let i = 0; i < str.length; i++) {
+        substr = str.slice(0,i)
+        if (isPalindrome(str + reverseString(substr))) return i
+    }
+}
+
+function reverseString(str) {
+    return str.split("").reverse().join("")
+}
+
+function isPalindrome(str) {
+    return str === reverseString(str)
 }
 
 
