@@ -1,3 +1,34 @@
+const prices = {
+	Strawberries: "$1.50", Banana: "$0.50", Mango: "$2.50",
+	Blueberries: "$1.00", Raspberries: "$1.00", Apple: "$1.75",
+	Pineapple: "$3.50"
+}
+
+class Smoothie {
+	constructor(ingredients) {
+		this.ingredients = ingredients
+	}
+	getCost() {
+			return "$" + this.ingredients.reduce((acc, val) => acc + Number(prices[val].replace("$", "")), 0).toFixed(2)
+	}
+	getPrice() {
+		return "$" + (Number(this.getCost().replace("$", "")) + (Math.round((Number(this.getCost().replace("$", "")) * 1.5) * 100) / 100)).toFixed(2)
+    }
+    getName() {
+        if (this.ingredients.length > 1)
+        return this.ingredients.sort().join(" ").split("berries").join("berry") + " Fusion"
+        return this.ingredients.sort().join(" ").split("berries").join("berry") + " Smoothie"
+    }
+	
+}
+
+let s2 = new Smoothie(["Raspberries", "Strawberries", "Blueberries"])
+let s3 = new Smoothie(["Raspberries"])
+console.log(s2.getPrice())
+console.log(s3.getName())
+
+
+
 function minPalindromeSteps(str) {
     for (let i = 0; i < str.length; i++) {
         substr = str.slice(0,i)
