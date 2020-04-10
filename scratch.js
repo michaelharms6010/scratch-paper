@@ -1,20 +1,23 @@
 const arr = ["mike", "nina", "jerry", "george","elaine","kramer"]
 
 // how do i print the name "nina" in the given array?
+console.log(arr[1])
 
 // how do I get the last item of the array?
+console.log(arr.pop())
 
 // how do I add the string "jimmy" to the end of the array?
+arr.push("jimmy")
 
+console.log(arr)
 
+// const capitalized = arr.map(name => name.toUpperCase())
 
-const capitalized = arr.map(name => name.toUpperCase())
+// console.log(capitalized)
 
-console.log(capitalized)
+// const containsI = arr.filter(name => name.includes("i"))
 
-const containsI = arr.filter(name => name.includes("i"))
-
-console.log(containsI)
+// console.log(containsI)
 
 
 
