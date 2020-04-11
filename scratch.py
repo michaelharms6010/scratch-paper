@@ -1,25 +1,38 @@
-# def twoStrings(s1, s2):
-#     hash = {}
-#     for i in range(len(s1)):
-#         hash[s1[i:]] =1
-#         for j in range(i, len(s1)):
-#             print(s1[i:j])
-#             if s1[i:j] != "":
-#                 hash[s1[i:j]] = 1
-#     print(hash)
-
 def twoStrings(s1, s2):
     hash = {}
     for i in range(len(s1)):
-        hash[s1[i]] = 1
-    print(hash)
+        hash[s1[i:]] =1
+        for j in range(i, len(s1)):
+            print(s1[i:j])
+            if s1[i:j] != "":
+                hash[s1[i:j]] = 1
+    hash2 = {}
     for i in range(len(s2)):
-        if s2[i] in hash.keys():
-            print("YES")
-    print("NO")            
+        hash2[s2[i:]] =1
+        for j in range(i, len(s2)):
+            if s2[i:j] != "":
+                hash2[s2[i:j]] = 1
+    anagrams = []
+    for i in hash.keys():
+        if i[::-1] in hash2.keys():
+            anagrams.append(i)
+    print(anagrams)
+    max_length = max(len(i) for i in anagrams)
+    return len(s1)-max_length + len(s2)-max_length
+    
+
+# def twoStrings(s1, s2):
+#     hash = {}
+#     for i in range(len(s1)):
+#         hash[s1[i]] = 1
+#     print(hash)
+#     for i in range(len(s2)):
+#         if s2[i] in hash.keys():
+#             print("YES")
+#     print("NO")            
  
 
-print(twoStrings("hello", "world"))
+print(twoStrings("fcrxzwscanmligyxyvym", "jxwtrhvujlmrpdoqbisbwhmgpmeoke"))
 
 def pageCount(n, p):
     # pages from start
