@@ -1,3 +1,5 @@
+
+
 def twoStrings(s1, s2):
     hash = {}
     for i in range(len(s1)):
@@ -31,9 +33,6 @@ def twoStrings(s1, s2):
 #             print("YES")
 #     print("NO")            
  
-
-print(twoStrings("fcrxzwscanmligyxyvym", "jxwtrhvujlmrpdoqbisbwhmgpmeoke"))
-
 def pageCount(n, p):
     # pages from start
     from_start = p // 2

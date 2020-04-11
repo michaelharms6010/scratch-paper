@@ -1,4 +1,52 @@
+function barChart(results) {
+	let resultArr = []
+	for (key in results) {
+		let str = ""
+		for (let i = 0 ; i < results[key]; i+= 50 ) {
+			str += "#"
+    } 
+    if (str) str += " "
+		
+		resultArr.push({quarter: key, amount: results[key], graph: str })
+  }
+  
+  resultArr = resultArr.sort((a,b) => Number(a.quarter[1]) - Number(b.quarter[1])).sort((a,b) => b.amount - a.amount)
+  // console.log(resultArr)
+  resultArr = resultArr.map(item => `${item.quarter}|${item.graph}${item.amount}`)
+  return resultArr.join("\n")
+}
+console.log(barChart({Q4: 250, Q1: 300, Q2: 150, Q3: 0}))
 
+
+
+function isPrime(n){
+    if (n===2 || n===3) return true
+    if (n%2 === 0 || n<2) return false
+    for (let i=3;i < Math.sqrt(n) +1; i+= 2) { 
+        if (n % i === 0) {
+            return false  
+        }  
+	}
+    return true
+}
+
+
+
+
+function interprime(n) {
+	const primes = []
+
+	for (let i = 1; i < n * 2; i++) {
+		if (isPrime(i)) {
+			primes.push(i)
+		}
+    }
+    for (let i = 1; i < primes.length; i++) {
+        if (primes[i] - n === Math.abs(primes[i-1] -n)) return [primes[i-1], primes[i]]
+    }
+    
+    return []
+}
 
 function navigate(roads, startingNode, endingNode) {
 	let edges = roads.graph.edges;
