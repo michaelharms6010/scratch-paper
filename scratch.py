@@ -1,3 +1,26 @@
+# def twoStrings(s1, s2):
+#     hash = {}
+#     for i in range(len(s1)):
+#         hash[s1[i:]] =1
+#         for j in range(i, len(s1)):
+#             print(s1[i:j])
+#             if s1[i:j] != "":
+#                 hash[s1[i:j]] = 1
+#     print(hash)
+
+def twoStrings(s1, s2):
+    hash = {}
+    for i in range(len(s1)):
+        hash[s1[i]] = 1
+    print(hash)
+    for i in range(len(s2)):
+        if s2[i] in hash.keys():
+            print("YES")
+    print("NO")            
+ 
+
+print(twoStrings("hello", "world"))
+
 def pageCount(n, p):
     # pages from start
     from_start = p // 2
@@ -19,5 +42,3 @@ def diagonalDifference(arr):
         urdiag += arr[len(arr)-i-1][i]
         print(urdiag)
     return abs(uldiag - urdiag)
-
-print(diagonalDifference([[1,2,3], [4,5,6], [7,8,9]]))
