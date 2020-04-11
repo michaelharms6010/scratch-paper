@@ -176,16 +176,6 @@ const roads = {
   graph,
 };
 
-console.log(navigate(roads, 1, 5))
-
-
-
-
-
-
-
-
-
 const arr = ["mike", "nina", "jerry", "george","elaine","kramer"]
 
 // const capitalized = arr.map(name => name.toUpperCase())
