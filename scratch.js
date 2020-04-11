@@ -1,15 +1,192 @@
+
+
+function navigate(roads, startingNode, endingNode) {
+	let edges = roads.graph.edges;
+    const paths = [];
+    const finishedPaths = []
+	let path = null;
+	paths.push({distance: 0, path: [startingNode]});
+	while (paths.length > 0) {
+        path = paths.pop();
+        if ( path.path[path.path.length -1] === endingNode) {
+            finishedPaths.push(path)
+        } else {
+            edges.forEach(item => {
+                // console.log(item)
+                if (item.source === path.path[path.path.length -1]) {
+                    if (!path.path.includes(item.target)) {
+                        paths.push({
+                            path: [...path.path, item.target],
+                            distance: path.distance + item.metadata.distance })
+                    }
+                } if (item.target === path.path[path.path.length -1]) {
+                    if (!path.path.includes(item.source)) {
+                        paths.push({
+                            path: [...path.path, item.source],
+                            distance: path.distance + item.metadata.distance })
+                    }
+                }
+            })
+        }
+    }
+	const shortest = finishedPaths.sort((a,b) => a.distance - b.distance)[0]
+	return shortest
+}
+
+const graph = JSON.parse(`
+{
+  "directed": false,
+  "nodes": [
+    { "id": 0 },
+    { "id": 1 },
+    { "id": 2 },
+    { "id": 3 },
+    { "id": 4 },
+    { "id": 5 },
+    { "id": 6 },
+    { "id": 7 },
+    { "id": 8 },
+    { "id": 9 }
+  ],
+  "edges": [
+    {
+      "source": 1,
+      "target": 6,
+      "label": "Oak Street",
+      "metadata": {
+        "distance": 5
+      }
+    },
+    {
+      "source": 6,
+      "target": 8,
+      "label": "Oak Street",
+      "metadata": {
+        "distance": 6
+      }
+    },
+    {
+      "source": 8,
+      "target": 9,
+      "label": "Oak Street",
+      "metadata": {
+        "distance": 11
+      }
+    },
+    {
+      "source": 8,
+      "target": 7,
+      "label": "Robin Way",
+      "metadata": {
+        "distance": 3
+      }
+    },
+    {
+      "source": 7,
+      "target": 4,
+      "label": "Robin Way",
+      "metadata": {
+        "distance": 5
+      }
+    },
+    {
+      "source": 6,
+      "target": 7,
+      "label": "Mountain Road",
+      "metadata": {
+        "distance": 8
+      }
+    },
+    {
+      "source": 7,
+      "target": 9,
+      "label": "Mountain Road",
+      "metadata": {
+        "distance": 9
+      }
+    },
+    {
+      "source": 4,
+      "target": 3,
+      "label": "National Street",
+      "metadata": {
+        "distance": 6
+      }
+    },
+    {
+      "source": 1,
+      "target": 0,
+      "label": "Sunrise Drive",
+      "metadata": {
+        "distance": 4
+      }
+    },
+    {
+      "source": 0,
+      "target": 3,
+      "label": "Short Street",
+      "metadata": {
+        "distance": 3
+      }
+    },
+    {
+      "source": 5,
+      "target": 4,
+      "label": "Rickety Creek",
+      "metadata": {
+        "distance": 7
+      }
+    },
+    {
+      "source": 4,
+      "target": 0,
+      "label": "Rickety Creek",
+      "metadata": {
+        "distance": 5
+      }
+    },
+    {
+      "source": 9,
+      "target": 5,
+      "label": "Uphill Grove",
+      "metadata": {
+        "distance": 6
+      }
+    },
+    {
+      "source": 5,
+      "target": 2,
+      "label": "Uphill Grove",
+      "metadata": {
+        "distance": 5
+      }
+    },
+    {
+      "source": 2,
+      "target": 3,
+      "label": "Uphill Grove",
+      "metadata": {
+        "distance": 7
+      }
+    }
+  ]
+}
+`);
+const roads = {
+  graph,
+};
+
+console.log(navigate(roads, 1, 5))
+
+
+
+
+
+
+
+
+
 const arr = ["mike", "nina", "jerry", "george","elaine","kramer"]
-
-// how do i print the name "nina" in the given array?
-console.log(arr[1])
-
-// how do I get the last item of the array?
-console.log(arr.pop())
-
-// how do I add the string "jimmy" to the end of the array?
-arr.push("jimmy")
-
-console.log(arr)
 
 // const capitalized = arr.map(name => name.toUpperCase())
 
