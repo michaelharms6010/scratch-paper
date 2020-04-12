@@ -100,7 +100,6 @@ function interprime(n) {
     for (let i = 1; i < primes.length; i++) {
         if (primes[i] - n === Math.abs(primes[i-1] -n)) return [primes[i-1], primes[i]]
     }
-    
     return []
 }
 
