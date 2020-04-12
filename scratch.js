@@ -1,3 +1,54 @@
+// Setup
+var collection = {
+  2548: {
+    album: "Slippery When Wet",
+    artist: "Bon Jovi",
+    tracks: [
+      "Let It Rock",
+      "You Give Love a Bad Name"
+    ]
+  },
+  2468: {
+    album: "1999",
+    artist: "Prince",
+    tracks: [
+      "1999",
+      "Little Red Corvette"
+    ]
+  },
+  1245: {
+    artist: "Robert Palmer",
+    tracks: [ ]
+  }
+};
+// Only change code below this line
+function updateRecords(id, prop, value) {
+if (!collection[id]) {
+  collection[id] = {}
+}
+
+if (prop != "tracks" && value != "") {
+  collection[id][prop] = value;
+} 
+if (prop === "tracks") {
+  collection[id][prop] = [];
+}
+if (prop === "tracks" && value != "") {
+  collection[id].tracks.push(value);
+}
+if (value === ""){
+  delete collection[id][prop];
+}
+  return collection;
+}
+updateRecords(5439, "artist", "ABBA");
+updateRecords(5439, "album", "ABBA Album");
+updateRecords(5439, "tracks", "Dancing Queen");
+console.log(collection)
+
+
+
+
 function getSubsets(arr, num) {
 	let counter = [1];
 	for (let i = 0; i < num; i++) {
@@ -14,7 +65,7 @@ function getSubsets(arr, num) {
 	return counter[num]
 }
 
-console.log(getSubsets([1,2,3,4,5,6], 9))
+
 
 
 function iqr(arr) {
