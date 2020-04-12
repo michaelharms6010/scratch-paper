@@ -1,3 +1,44 @@
+function iqr(arr) {
+  let leftSide, rightSide = [];
+  arr = arr.sort((a,b) => a-b)
+  if (arr.length % 2 === 1) {
+    leftSide = arr.slice(0, Math.floor(arr.length / 2))
+    rightSide = arr.slice(Math.ceil(arr.length / 2), arr.length)
+    console.log(leftSide, rightSide)
+    return (getMedian(rightSide) - getMedian(leftSide))
+	} else {
+    leftSide = arr.slice(0, arr.length /2)
+    rightSide = arr.slice(arr.length / 2, arr.length)
+    
+    return (getMedian(rightSide) - getMedian(leftSide))
+  }
+}
+
+function getMedian(arr) {
+	if (arr.length % 2 === 1) {
+    return arr[Math.floor(arr.length / 2)]
+	} else {
+    console.log()
+    return (arr[arr.length/2] + arr[arr.length/2 - 1]) /2
+  }
+}
+console.log(iqr([-3.1, -3.8, -14, 23, 0]))
+
+
+function isGoalScored(goal) {
+	goal.map(item => {
+	let sides = item[0].split("0")
+	let left = sides[0]
+	let right = sides[1]
+	if (sides.length > 1) {
+		console.log(left, right)
+		if (left.includes("#") && right.includes("#")) return true
+	}
+
+	})
+	return false
+}
+
 function barChart(results) {
 	let resultArr = []
 	for (key in results) {
@@ -15,7 +56,6 @@ function barChart(results) {
   resultArr = resultArr.map(item => `${item.quarter}|${item.graph}${item.amount}`)
   return resultArr.join("\n")
 }
-console.log(barChart({Q4: 250, Q1: 300, Q2: 150, Q3: 0}))
 
 
 
