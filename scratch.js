@@ -9,7 +9,6 @@ function getSubsets(arr, num) {
 		for(let j = num - arr[i]; j > -1 ; j--) {
 			if (counter[j]) {
         counter[j + arr[i]] += counter[j]
-        console.log(counter)
 			}
 		}
 	}
@@ -25,7 +24,6 @@ function iqr(arr) {
   if (arr.length % 2 === 1) {
     leftSide = arr.slice(0, Math.floor(arr.length / 2))
     rightSide = arr.slice(Math.ceil(arr.length / 2), arr.length)
-    console.log(leftSide, rightSide)
     return (getMedian(rightSide) - getMedian(leftSide))
 	} else {
     leftSide = arr.slice(0, arr.length /2)
@@ -39,11 +37,9 @@ function getMedian(arr) {
 	if (arr.length % 2 === 1) {
     return arr[Math.floor(arr.length / 2)]
 	} else {
-    console.log()
     return (arr[arr.length/2] + arr[arr.length/2 - 1]) /2
   }
 }
-console.log(iqr([-3.1, -3.8, -14, 23, 0]))
 
 
 function isGoalScored(goal) {
@@ -52,7 +48,6 @@ function isGoalScored(goal) {
 	let left = sides[0]
 	let right = sides[1]
 	if (sides.length > 1) {
-		console.log(left, right)
 		if (left.includes("#") && right.includes("#")) return true
 	}
 
