@@ -1,4 +1,14 @@
+def total_subsets_matching_sum(numbers, sum):
+    array = [1] + [0] * (sum)
+    for current_number in numbers:
+        for num in range(sum - current_number, -1, -1):
+            if array[num]:
+                
+                array[num + current_number] += array[num]
+                print(array)
+    return array[sum]
 
+print(total_subsets_matching_sum([1,2,3] , 3))
 
 def twoStrings(s1, s2):
     hash = {}

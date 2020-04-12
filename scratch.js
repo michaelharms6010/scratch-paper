@@ -1,3 +1,22 @@
+function getSubsets(arr, num) {
+	let counter = [1];
+	for (let i = 0; i < num; i++) {
+		counter.push(0);
+	}
+	for ( let i = 0; i < arr.length; i++) {
+		for(let j = num - arr[i]; j > -1 ; j--) {
+			if (counter[j]) {
+        counter[j + arr[i]] += counter[j]
+        console.log(counter)
+			}
+		}
+	}
+	return counter[num]
+}
+
+console.log(getSubsets([1,2,3,4,5,6], 9))
+
+
 function iqr(arr) {
   let leftSide, rightSide = [];
   arr = arr.sort((a,b) => a-b)
