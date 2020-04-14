@@ -1,4 +1,60 @@
+function groupingDishes(dishes) {
+  let hash = {}
+  for (let i = 0; i < dishes.length; i++) {
+      let name = dishes[i][0]
+      
+      for (let j = 1; j < dishes[i].length; j++) {
+          if (hash[dishes[i][j]]) {
+              hash[dishes[i][j]].push(name)
+          } else {
+            hash[dishes[i][j]] = [name]
+          }
+      }
 
+  }
+  output = []
+  for (key in hash) {
+    if (hash[key].length > 1) {
+      output.push([key, ...hash[key].sort()])
+    }
+  }
+  return output.sort((a,b) => (a[0].charCodeAt(0) - b[0].charCodeAt(0)))
+}
+
+groupingDishes([["Salad","Tomato","Cucumber","Salad","Sauce"], 
+["Pizza","Tomato","Sausage","Sauce","Dough"], 
+["Quesadilla","Chicken","Cheese","Sauce"], 
+["Sandwich","Salad","Bread","Tomato","Cheese"]])
+
+
+function ulam(n) {
+  if (n <=4 ) return n
+  let sequence = [1,2];
+  let found = [];
+  while (sequence.length < n) {
+    let max = Math.max(...sequence)
+    for (let i = 0; i < sequence.length; i++) {
+      for (let j = i+1; j < sequence.length; j++) {
+        if (sequence[i] + sequence[j] > max) {
+          found.push(sequence[i] + sequence[j])
+        }
+      }
+    }
+    let seqlen = sequence.length
+    while (sequence.length === seqlen) {
+      let smallest = found.shift();
+      if (found.includes(smallest)) {
+        found = found.filter(item => item != smallest)
+      } else if (smallest) {
+        sequence.push(smallest)
+      }
+    }
+    found = []
+  }
+ 
+  return sequence
+
+}
 
 function getSubsets(arr, num) {
 	let counter = [1];
