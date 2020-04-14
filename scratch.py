@@ -1,3 +1,38 @@
+def countTriplets(arr, r):
+    counthash = {}
+    completehash = {}
+    count = 0
+    for i in arr:
+        if completehash.get(i):
+            print(completehash[i])
+            count += completehash[i]
+        if counthash.get(i):
+            if completehash.get(i * r):
+                completehash[i * r] += counthash[i]
+            else:
+                completehash[i * r]  = counthash[i]
+        if counthash.get(i * r):
+            counthash[i * r] += 1
+        else:
+            counthash[i * r] = 1
+    return count
+
+
+
+test =[]
+for i in range(10):
+    test.append(3)
+
+print(countTriplets(test, 1))
+
+
+def pythTrip():
+    for i in range(1,30):
+        for j in range(i+1, 30):
+            for k in range(j+1, 30):
+                if i**2 + j**2 +k**2 == 1000:
+                    return [i,j,k]
+
 def sherlockAndAnagrams(s):
     hash = {}
     count = 0
@@ -16,9 +51,6 @@ def sherlockAndAnagrams(s):
             count += total
             
     return count
-
-print(sherlockAndAnagrams("kkkk"))
-
 
 def threeSum(nums):
         output = []
