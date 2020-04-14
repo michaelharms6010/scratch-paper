@@ -1,3 +1,37 @@
+
+
+
+def whatFlavors(cost, money):
+    hash = {}
+    for i in range(len(cost)):
+        if hash.get(cost[i]):
+            output = [i+1, hash[cost[i]]]
+            output.sort()
+            print(output[0], output[1])
+            return
+        hash[money-cost[i]] = i+1
+
+def isBalanced(s):
+    pairs = {
+        "{" : "}",
+        "[" : "]",
+        "(" : ")"
+    }
+    stack = []
+    for i in s:
+        if pairs.get(i):
+            stack.append(i)
+        if i in pairs.values():
+            if len(stack) == 0:
+                return "NO"
+            last = stack.pop()
+            if pairs[last] != i:
+                return "NO"
+
+    return "YES"
+
+
+
 def countTriplets(arr, r):
     counthash = {}
     completehash = {}
@@ -18,12 +52,6 @@ def countTriplets(arr, r):
     return count
 
 
-
-test =[]
-for i in range(10):
-    test.append(3)
-
-print(countTriplets(test, 1))
 
 
 def pythTrip():
