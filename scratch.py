@@ -1,3 +1,35 @@
+def isValid(s):
+    hash = {}
+    if len(s) == 1:
+        return "YES"
+    for i in s:
+        if hash.get(i):
+            hash[i] += 1
+        else:
+            hash[i] = 1
+    print(hash)
+    if hash[s[0]] == hash[s[1]]:
+        rate = hash[s[0]]
+    elif hash[s[2]] == hash[s[3]]:
+        rate = hash[s[2]]
+    else:
+        return "NO"
+    toggled = False
+    for i in hash.values():
+        if i != rate:
+            
+            if i + 1 == rate or i-1 == rate or i==1:
+                
+                if toggled:
+                    return "NO"
+                toggled = True
+            else:
+                return "NO"
+                
+
+    return "YES"
+
+print(isValid("ibfdgaeadiaefgbhbdghhhbgdfgeiccbiehhfcggchgghadhdhagfbahhddgghbdehidbibaeaagaeeigffcebfbaieggabcfbiiedcabfihchdfabifahcbhagccbdfifhghcadfiadeeaheeddddiecaicbgigccageicehfdhdgafaddhffadigfhhcaedcedecafeacbdacgfgfeeibgaiffdehigebhhehiaahfidibccdcdagifgaihacihadecgifihbebffebdfbchbgigeccahgihbcbcaggebaaafgfedbfgagfediddghdgbgehhhifhgcedechahidcbchebheihaadbbbiaiccededchdagfhccfdefigfibifabeiaccghcegfbcghaefifbachebaacbhbfgfddeceababbacgffbagidebeadfihaefefegbghgddbbgddeehgfbhafbccidebgehifafgbghafacgfdccgifdcbbbidfifhdaibgigebigaedeaaiadegfefbhacgddhchgcbgcaeaieiegiffchbgbebgbehbbfcebciiagacaiechdigbgbghefcahgbhfibhedaeeiffebdiabcifgccdefabccdghehfibfiifdaicfedagahhdcbhbicdgibgcedieihcichadgchgbdcdagaihebbabhibcihicadgadfcihdheefbhffiageddhgahaidfdhhdbgciiaciegchiiebfbcbhaeagccfhbfhaddagnfieihghfbaggiffbbfbecgaiiidccdceadbbdfgigibgcgchafccdchgifdeieicbaididhfcfdedbhaadedfageigfdehgcdaecaebebebfcieaecfagfdieaefdiedbcadchabhebgehiidfcgahcdhcdhgchhiiheffiifeegcfdgbdeffhgeghdfhbfbifgidcafbfcd"))
 
 
 
