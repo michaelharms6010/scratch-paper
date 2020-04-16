@@ -1,3 +1,7 @@
+for (let i = 2**52; i<2** 53; i++) {
+  console.log(i)
+}
+
 function groupingDishes(dishes) {
   let hash = {}
   for (let i = 0; i < dishes.length; i++) {
