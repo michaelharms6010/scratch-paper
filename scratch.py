@@ -1,3 +1,5 @@
+
+
 def longestCommonSubstring(s, t):
     hash = {}
     length = 0
