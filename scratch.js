@@ -1,5 +1,9 @@
-for (let i = 2**52; i<2** 53; i++) {
-  console.log(i)
+
+
+function hasHiddenFee(prices, t) {
+  const total = prices.reduce((a,b) => a + Number(b.replace("$", "")), 0)
+  console.log(total, t)
+	return `$${total}` !== t
 }
 
 function groupingDishes(dishes) {
