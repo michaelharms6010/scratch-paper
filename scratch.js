@@ -1,4 +1,30 @@
+function largestIsland(map) {
+	
+}
 
+
+function smallest(n) {
+  let divisible = true
+  
+  for (let i = n * n-1 ; i<= factorial(n) ; i+=n) {
+    divisible = true;
+    for (let j = 1; j <=n; j++) {
+      if (i % j !== 0) divisible = false
+    }
+    if (divisible) {
+      return i
+    }
+  }
+}
+
+function factorial(n) {
+  total = 1
+  for (let i = n; i > 0; i--) {
+    total *= i
+  }
+  return total
+}
+console.log(factorial(101))
 
 function hasHiddenFee(prices, t) {
   const total = prices.reduce((a,b) => a + Number(b.replace("$", "")), 0)
