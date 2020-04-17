@@ -1,3 +1,20 @@
+function canComplete(fragment, word) {
+  let f_cursor = 0;
+  let w_cursor = 0;
+  while (w_cursor < word.length) {
+    if (fragment[f_cursor] === word[w_cursor]) {
+      f_cursor += 1;
+    }
+    if (f_cursor > fragment.length) {
+      return true
+    }
+    w_cursor += 1
+  }
+  return false
+}
+
+console.log(canComplete("butl","beautiful"))
+
 function edaPlatform(stage, commands) {
   // start the player in the lower left
   let [row, col] = [1,0]
@@ -40,16 +57,6 @@ function edaPlatform(stage, commands) {
   }
   return `Level completed! Your score: ${score}!`
 }
-
-
-
-console.log(edaPlatform([
-	[" ", "°", "°", " ", " ", " ", "°", " ", " ", "%"],
-	["_", "_", " ", "_", "_", "!", "_", "!", "_", "_"]
-], "FJFJJFJJUF"))
-
-
-
 
 function isPandigital(num) {
   num = [...new Set(String(num).split(""))].sort()
