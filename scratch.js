@@ -5,7 +5,7 @@ function canComplete(fragment, word) {
     if (fragment[f_cursor] === word[w_cursor]) {
       f_cursor += 1;
     }
-    if (f_cursor > fragment.length) {
+    if (f_cursor === fragment.length) {
       return true
     }
     w_cursor += 1
@@ -13,7 +13,7 @@ function canComplete(fragment, word) {
   return false
 }
 
-console.log(canComplete("butl","beautiful"))
+console.log(canComplete("tulb", "beautiful"))
 
 function edaPlatform(stage, commands) {
   // start the player in the lower left
