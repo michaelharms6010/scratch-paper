@@ -1,5 +1,63 @@
+function isPandigital(num) {
+	num = [...new Set(String(num).split(""))].sort()
+	return num.includes("0123456789")
+}
+
+
 function largestIsland(map) {
-	
+  const sizes = []
+  
+	for (let i = 0; i < map.length; i++) {
+    for (let j = 0; j < map[0].length; j++) {
+      if (map[i][j]) {
+        let stack = []
+        stack.push([i,j])
+        map[i][j] = 0
+        let size = 0
+        while (stack.length) {
+          let point = stack.pop();
+          size += 1
+          if (map[point[0]+1] && map[point[0]+1][point[1]]) {
+            map[point[0]+1][point[1]] = 0
+            stack.push([point[0]+1, point[1]]);
+          }
+          if (map[point[0]+1] && map[point[0]+1][point[1] + 1]) {
+            map[point[0]+1][point[1] + 1] = 0
+            stack.push([point[0]+1, point[1] + 1]);
+          }
+          if (map[point[0]+1] && map[point[0]+1][point[1] -1]) {
+            map[point[0]+1][point[1] - 1] = 0
+            stack.push([point[0]+1, point[1] - 1]);
+          }
+          if (map[point[0]-1] && map[point[0]-1][point[1]]) {
+            map[point[0]-1][point[1]] = 0
+            stack.push([point[0]-1, point[1]]);
+          }
+          if (map[point[0]-1] && map[point[0]-1][point[1] + 1]) {
+            map[point[0]-1][point[1] + 1] = 0
+            stack.push([point[0]-1, point[1] + 1]);
+          }
+          if (map[point[0]-1] && map[point[0]-1][point[1] - 1]) {
+            map[point[0]-1][point[1] - 1] = 0
+            stack.push([point[0]-1, point[1] - 1]);
+          }
+          if (map[point[0]][point[1]+1]) {
+            map[point[0]][point[1]+1] = 0
+            stack.push([point[0], point[1]+1]);
+          }
+          if (map[point[0]][point[1]-1]) {
+            map[point[0]][point[1]-1] = 0
+            stack.push([point[0], point[1]-1]);
+          }
+          
+        }
+        sizes.push(size);
+        // do bfs, returning size
+        // push size to sizes
+      }
+    }
+  }
+  return Math.max(...sizes)
 }
 
 
