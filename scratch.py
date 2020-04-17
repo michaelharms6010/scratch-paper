@@ -1,3 +1,25 @@
+def amendTheSentence(s):
+    sentence = ""
+    word = ""
+    caps = 1
+    for i in range(len(s)):
+        
+        if s[i].upper() == s[i] and i != 0:
+            caps += 1
+            
+        if caps == 2:
+            sentence += word.lower() + " "
+            caps = 1
+            word = s[i]
+        else:
+            word += s[i]
+    sentence += word.lower()
+    return sentence
+
+print(amendTheSentence("HelloWorld"))
+
+
+
 class MinStack:
 
     def __init__(self):
