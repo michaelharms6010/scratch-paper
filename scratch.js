@@ -1,3 +1,56 @@
+function edaPlatform(stage, commands) {
+  // start the player in the lower left
+  let [row, col] = [1,0]
+  let score = 0
+  let inputs = commands.split("")
+  // a queue for moves
+  let moves = []
+
+  while (col < stage[0].length) {
+    if ((stage[row][col]) === "!") {
+      return `Game over! Your score: ${score}!`
+    }
+    // fall in a pit
+    if (row === 1 && stage[row][col] === " ") {
+      return `Game over! Your score: ${score}!`
+    }
+    if (stage[row][col] === "°") {
+      score += 25;
+    }
+    if (stage[row][col] === "%") {
+      score += 50;
+    }
+    if (!moves.length) {
+      newCommand = inputs.shift()
+      if (newCommand === "J") {
+        moves.push([-1,1], [1,1])
+      } else if (newCommand === "U") {
+        moves.push([-1,0], [1,0])
+      } else if (newCommand === "F") {
+        moves.push([0,1])
+      }
+    }
+    stage[row][col] = "x"
+    newmove = moves.shift();
+    if (newmove) {
+      row += newmove[0]
+      col += newmove[1]
+    }
+    
+  }
+  return `Level completed! Your score: ${score}!`
+}
+
+
+
+console.log(edaPlatform([
+	[" ", "°", "°", " ", " ", " ", "°", " ", " ", "%"],
+	["_", "_", " ", "_", "_", "!", "_", "!", "_", "_"]
+], "FJFJJFJJUF"))
+
+
+
+
 function isPandigital(num) {
   num = [...new Set(String(num).split(""))].sort()
 	return num.includes("0123456789")
