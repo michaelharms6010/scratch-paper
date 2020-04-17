@@ -1,3 +1,12 @@
+def strstr(s, x):
+    for i in range(len(s) - len(x) +1):
+        if s[i:i+len(x)] == x:
+            return i
+    return -1
+
+print(strstr("ssx", "sx"))
+
+
 def amendTheSentence(s):
     sentence = ""
     word = ""
@@ -15,8 +24,6 @@ def amendTheSentence(s):
             word += s[i]
     sentence += word.lower()
     return sentence
-
-print(amendTheSentence("HelloWorld"))
 
 
 
@@ -53,7 +60,6 @@ obj.push(-2)
 obj.push(-3)
 obj.push(0)
 obj.push(5)
-print(obj.getMin())
 # obj.push(x)
 # obj.pop()
 # param_3 = obj.top()
