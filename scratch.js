@@ -1,4 +1,31 @@
-console.log(palindromeSieve([443,12,639,121,3232]))
+function nodeType(n, p, val) {
+  let hash = {}
+  for (let i =0; i < n.length; i++) {
+    if (n[i] === val && p[i] === -1) {
+      return "Root"
+    }
+    hash[n[i]] = {parent: p[i], child: null} 
+  }
+  for (key in hash) {
+    console.log(hash)
+    if (hash[key].parent >-1) {
+      hash[hash[key].parent].child = key
+    }
+  }
+  if (!hash[val]) {
+    return "Not exist"
+  } else if (hash[val].parent && hash[val].child) {
+    return "Inner"
+  } else {
+    return "Leaf"
+  }
+}
+
+
+
+console.log(nodeType([1, 3, 6, 9, 2, 8, 5], [2, 2, 8, 8, 5, 5, -1], 8))
+
+
 
 function palindromeSieve(nums) {
   const output = [];
