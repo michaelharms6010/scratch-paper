@@ -1,3 +1,37 @@
+console.log(palindromeSieve([443,12,639,121,3232]))
+
+function palindromeSieve(nums) {
+  const output = [];
+
+  for (let i = 0; i < nums.length; i++) {
+    let hash = {}
+    let odds = 0
+    newNum = String(nums[i])
+    for (let j = 0; j < newNum.length; j++) {
+      if (hash[newNum[j]]) {
+        hash[newNum[j]] += 1
+      } else {
+        hash[newNum[j]] = 1
+      }
+    }
+    for (key in hash) {
+      if (hash[key] % 2 === 1) {
+        odds += 1
+      }
+    }
+    if (newNum.length % 2 === 1 && odds <= 1) {
+      output.push(nums[i])
+    } else if (newNum.length % 2 === 0 && odds === 0) {
+      output.push(nums[i])
+    } else if (newNum.length < 2) {
+      output.push(nums[i])
+    }
+  }
+  return output
+}
+
+
+
 function canComplete(fragment, word) {
   let f_cursor = 0;
   let w_cursor = 0;
