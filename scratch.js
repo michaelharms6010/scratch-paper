@@ -1,7 +1,9 @@
 function isPandigital(num) {
-	num = [...new Set(String(num).split(""))].sort()
+  num = [...new Set(String(num).split(""))].sort()
 	return num.includes("0123456789")
 }
+
+isPandigital(12345555)
 
 
 function largestIsland(map) {
