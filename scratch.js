@@ -1,3 +1,11 @@
+
+let num=1234567890
+num = [...new Set(String(num).split(""))].sort().join("")
+
+console.log(num.includes("0123456789"))
+
+
+
 function nodeType(n, p, val) {
   let hash = {}
   for (let i =0; i < n.length; i++) {
@@ -20,11 +28,6 @@ function nodeType(n, p, val) {
     return "Leaf"
   }
 }
-
-
-
-console.log(nodeType([1, 3, 6, 9, 2, 8, 5], [2, 2, 8, 8, 5, 5, -1], 8))
-
 
 
 function palindromeSieve(nums) {
