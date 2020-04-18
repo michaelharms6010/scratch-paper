@@ -1,8 +1,8 @@
 
-let num=1234567890
-num = [...new Set(String(num).split(""))].sort().join("")
-
-console.log(num.includes("0123456789"))
+function isPandigital(num) {
+  let num=1234567890
+  num = [...new Set(String(num).split(""))].sort().join("")
+}
 
 
 
