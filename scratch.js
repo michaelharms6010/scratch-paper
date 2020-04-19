@@ -25,8 +25,6 @@ function isFullHouse(hand) {
 	return Object.values(hash).includes(3) && Object.values(hash).includes(2)
 }
 
-console.log(isFullHouse(['A', 'A', 'A', 'K', 'K']))
-
 function diceRange(str) {
   let numDice = Number(str.split("d")[0])
   let faces, modifier;
