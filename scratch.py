@@ -129,8 +129,6 @@ def containsCloseNums(nums, k):
             hash[nums[i]] = i
     return True
 
-
-
 def isValid(s):
     hash = {}
     if len(s) == 1:
@@ -149,17 +147,13 @@ def isValid(s):
         return "NO"
     toggled = False
     for i in hash.values():
-        if i != rate:
-            
-            if i + 1 == rate or i-1 == rate or i==1:
-                
+        if i != rate:            
+            if i + 1 == rate or i-1 == rate or i==1: 
                 if toggled:
                     return "NO"
                 toggled = True
             else:
                 return "NO"
-                
-
     return "YES"
 
 
