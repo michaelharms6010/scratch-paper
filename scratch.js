@@ -679,16 +679,15 @@ function isPrime(n){
 
 function interprime(n) {
 	const primes = []
-
 	for (let i = 1; i < n * 2; i++) {
 		if (isPrime(i)) {
 			primes.push(i)
 		}
-    }
-    for (let i = 1; i < primes.length; i++) {
-        if (primes[i] - n === Math.abs(primes[i-1] -n)) return [primes[i-1], primes[i]]
-    }
-    return []
+  }
+  for (let i = 1; i < primes.length; i++) {
+      if (primes[i] - n === Math.abs(primes[i-1] -n)) return [primes[i-1], primes[i]]
+  }
+  return []
 }
 
 function navigate(roads, startingNode, endingNode) {
