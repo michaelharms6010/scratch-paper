@@ -49,7 +49,7 @@ function canMove(piece, current, target) {
 
   }
 }
-console.log(canMove("Rook", "A1", "B1"))
+console.log(canMove("Rook", "A1", "A8"))
 
 function nodeType(n, p, val) {
   let hash = {}
