@@ -240,39 +240,7 @@ def threeSum(nums):
                         newEntry = [nums[i], nums[j], hash[nums[i] + nums[j]]]
                         newEntry.sort()
                         output.append(newEntry)
-
         return output
-
-# def sumSubsets(arr, target):
-#     output = []
-#     hash = {}
-#     for i in range(len(arr)):
-#         for j in range(i+1,len(arr)):
-#             totaller = target - arr[i] - arr[j]
-#             if arr[i] != totaller and j != i and arr[j] != totaller:
-#                 if totaller in arr:
-#                     subset = [arr[i], arr[j], totaller]
-#                     subset.sort()
-#                     if sum(subset) == target and subset not in output:
-#                         output.append(subset)
-#                         hash[str(subset)] = 1
-
-
-#     def first(i):
-#         return i[0]
-#     def second(i):
-#         return i[1]
-#     def third(i):
-#         return i[2]
-
-#     subsets = output
-#     subsets.sort(key=third)
-#     subsets.sort(key=second)
-#     subsets.sort(key=first)
-#     return subsets
-
-# print(sumSubsets([-3,-2,-1,0,1,2,3,4,5,6,7,8], 6))
-
 
 def sumSubsets(arr, target):
     output = []
