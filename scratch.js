@@ -1,5 +1,233 @@
 const assert = require("assert")
 
+function canExit(arr) {
+	let start = [0,0];
+  let exit = [arr.length-1, arr[0].length-1]
+  stack = []
+  if (arr[exit[0]][exit-1] === 1) return false
+  stack.push(start);
+  while (stack.length) {
+    [currow, curcol] = stack.pop();
+    arr[currow][curcol] = 1;
+    if (arr[currow+1] && arr[currow+1][curcol] == 0) {
+      stack.push([currow +1, curcol])
+    }
+    if (arr[currow-1] && arr[currow-1][curcol] == 0) {
+      stack.push([currow -1, curcol])
+    }
+    if (arr[currow][curcol+1] == 0) {
+      stack.push([currow, curcol+1])
+    }
+    if (arr[currow][curcol-1] == 0) {
+      stack.push([currow, curcol-1])
+    }
+    if (currow === exit[0] && curcol === exit[1]) return true
+  }
+
+  return false
+}
+
+assert.equal(canExit([
+	[0, 1, 1, 1, 1, 1, 1], 
+	[0, 0, 1, 1, 0, 1, 1], 
+	[1, 0, 0, 0, 0, 1, 1], 
+	[1, 1, 1, 1, 0, 0, 1], 
+	[1, 1, 1, 1, 1, 0, 0]
+]), true)
+
+assert.equal(canExit([
+	[0, 1, 1, 1, 1, 1, 1], 
+	[0, 0, 1, 0, 0, 1, 1], 
+	[1, 0, 0, 0, 0, 1, 1], 
+	[1, 1, 0, 1, 0, 0, 1], 
+	[1, 1, 0, 0, 1, 1, 1]
+]), false)
+
+assert.equal(canExit([
+	[0, 1, 1, 1, 1, 0, 0], 
+	[0, 0, 0, 0, 1, 0, 0], 
+	[1, 1, 1, 0, 0, 0, 0], 
+	[1, 1, 1, 1, 1, 1, 0], 
+	[1, 1, 1, 1, 1, 1, 1]
+]), false)
+
+assert.equal(canExit([
+	[0, 1, 1, 1, 1, 0, 0], 
+	[0, 0, 0, 0, 1, 0, 0], 
+	[1, 1, 1, 0, 0, 0, 0], 
+	[1, 0, 0, 0, 1, 1, 0], 
+	[1, 1, 1, 1, 1, 1, 0]
+]), true)
+
+assert.equal(canExit([
+	[0, 1, 1, 1, 1, 0, 0], 
+	[0, 0, 0, 0, 1, 0, 0], 
+	[1, 1, 1, 0, 0, 0, 0], 
+	[1, 0, 0, 0, 0, 1, 1], 
+	[1, 1, 1, 1, 0, 0, 0]
+]), true)
+
+assert.equal(canExit([
+	[0, 1, 1, 1, 1, 0, 1], 
+	[0, 0, 0, 0, 1, 0, 1], 
+	[1, 1, 1, 0, 0, 0, 1], 
+	[1, 0, 0, 0, 0, 1, 1], 
+	[1, 1, 1, 1, 0, 1, 1]
+]), false)
+
+assert.equal(canExit([
+	[0, 0, 0, 0, 0, 0, 0], 
+	[0, 0, 0, 0, 1, 0, 0], 
+	[1, 1, 1, 0, 0, 0, 0], 
+	[1, 0, 0, 0, 0, 1, 0], 
+	[1, 1, 1, 1, 0, 1, 0]
+]), true)
+
+assert.equal(canExit([
+	[0, 0, 0, 0, 0, 0, 0], 
+	[0, 1, 1, 1, 1, 1, 0], 
+	[0, 1, 1, 1, 1, 1, 0], 
+	[0, 1, 1, 1, 1, 1, 0], 
+	[0, 0, 0, 0, 0, 0, 1]
+]), false)
+
+assert.equal(canExit([
+	[0, 0, 1, 1, 1, 1, 1], 
+	[1, 0, 0, 1, 1, 1, 1], 
+	[1, 1, 0, 0, 1, 1, 1], 
+	[1, 1, 1, 0, 0, 0, 0], 
+	[1, 1, 1, 1, 1, 1, 0]
+]), true)
+
+// More False Tests
+assert.equal(canExit([
+	[0, 0, 0, 0, 0, 0, 0], 
+	[0, 1, 1, 1, 1, 1, 0], 
+	[0, 1, 1, 1, 1, 1, 0], 
+	[0, 1, 1, 1, 1, 1, 1], 
+	[0, 0, 0, 0, 0, 1, 0]
+]), false)
+
+assert.equal(canExit([
+	[0, 1, 0, 0, 0, 0, 0], 
+	[0, 1, 1, 1, 1, 1, 0], 
+	[0, 1, 1, 1, 1, 1, 0], 
+	[0, 1, 1, 1, 1, 1, 0], 
+	[0, 0, 0, 0, 0, 1, 0]
+]), false)
+
+
+
+
+
+
+
+function canEnterCave(x) {
+  let start = findStart(x);
+  let stack = [];
+  stack.push(start);
+  while (stack.length) {
+    [currow, curcol] = stack.pop();
+    x[currow][curcol] = 1;
+    if (x[currow+1] && x[currow+1][curcol] == 0) {
+      stack.push([currow +1, curcol])
+    }
+    if (x[currow-1] && x[currow-1][curcol] == 0) {
+      stack.push([currow -1, curcol])
+    }
+    if (x[currow][curcol+1] == 0) {
+      stack.push([currow, curcol+1])
+    }
+    if (x[currow][curcol-1] == 0) {
+      stack.push([currow, curcol-1])
+    }
+  }
+  for (let i =0; i< x.length; i++) {
+    if (x[i].includes(0)) return false
+  }
+  return true
+}
+
+function findStart(x) {
+  for (let i = 0; i < x.length; i++) {
+    for (let j = 0; j < x[0].length; j++) {
+      if (x[i][j] === 0) return [i,j]
+    }
+  }
+  return null
+}
+
+// assert.equal(canEnterCave([
+//   [0, 0, 1, 1, 1, 0, 0, 0], 
+//   [0, 0, 0, 0, 1, 0, 0, 0], 
+//   [0, 0, 1, 0, 0, 0, 0, 0], 
+//   [0, 0, 1, 1, 1, 1, 1, 0]
+//   ]), true)
+  
+//   assert.equal(canEnterCave([
+//   [0, 0, 0, 1, 0, 0, 0, 0], 
+//   [0, 0, 0, 1, 1, 0, 0, 0], 
+//   [0, 0, 0, 0, 1, 1, 0, 0], 
+//   [0, 0, 0, 1, 1, 1, 1, 0]
+//   ]), false)
+  
+//   assert.equal(canEnterCave([
+//   [0, 1, 1, 1, 0, 1, 1, 0], 
+//   [0, 0, 1, 1, 0, 0, 0, 0], 
+//   [0, 0, 0, 0, 0, 1, 0, 0], 
+//   [0, 1, 1, 1, 1, 1, 1, 0]
+//   ]), true)
+  
+//   assert.equal(canEnterCave([
+//   [0, 1, 1, 1, 0, 1, 1, 0], 
+//   [0, 0, 1, 1, 0, 0, 0, 0], 
+//   [0, 0, 0, 1, 0, 1, 0, 0], 
+//   [0, 1, 1, 1, 1, 1, 1, 0]
+//   ]), false)
+  
+//   assert.equal(canEnterCave([
+//   [0, 1, 1, 1, 0, 1, 1, 0], 
+//   [0, 0, 1, 1, 0, 0, 0, 0], 
+//   [0, 0, 0, 0, 1, 1, 1, 0], 
+//   [0, 1, 1, 1, 1, 1, 1, 0]
+//   ]), false)
+  
+//   assert.equal(canEnterCave([
+//   [0, 1, 1, 1, 1, 1, 1, 0], 
+//   [0, 0, 0, 0, 0, 0, 0, 0], 
+//   [0, 0, 0, 0, 0, 1, 1, 0], 
+//   [0, 1, 1, 0, 0, 1, 1, 0]
+//   ]), true)
+  
+//   assert.equal(canEnterCave([
+//   [0, 1, 1, 1, 1, 1, 1, 0], 
+//   [0, 0, 0, 0, 1, 0, 0, 0], 
+//   [0, 0, 1, 1, 1, 1, 1, 0], 
+//   [0, 1, 1, 0, 0, 1, 1, 0]
+//   ]), false)
+  
+//   assert.equal(canEnterCave([
+//   [0, 1, 1, 1, 1, 1, 1, 0], 
+//   [0, 1, 0, 0, 1, 0, 0, 0], 
+//   [0, 0, 1, 0, 1, 1, 1, 0], 
+//   [0, 1, 1, 0, 0, 1, 1, 0]
+//   ]), false)
+  
+//   assert.equal(canEnterCave([
+//   [0, 1, 1, 1, 1, 1, 1, 1], 
+//   [0, 0, 0, 0, 1, 0, 0, 1], 
+//   [0, 0, 1, 0, 1, 0, 0, 0], 
+//   [0, 1, 1, 0, 0, 0, 1, 0]
+//   ]), true)
+  
+//   assert.equal(canEnterCave([
+//   [1, 0, 0, 0, 0, 0, 1, 0, 0], 
+//   [1, 0, 1, 1, 1, 0, 1, 0, 1], 
+//   [1, 0, 1, 0, 0, 0, 1, 0, 1], 
+//   [1, 0, 1, 0, 1, 1, 1, 0, 1],
+//   [0, 0, 1, 0, 0, 0, 0, 0, 1]
+//   ]), true)
+
 function canMove(piece, current, target) {
   const colMap = {
     "A": 1,
