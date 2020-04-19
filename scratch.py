@@ -1,10 +1,41 @@
+def can_exit(lst):
+    start = [0,0]
+    exit = [len(lst)-1, len(lst[0])-1]
+    stack = []
+    if lst[exit[0]][exit[1]] == 1:
+        return False
+    stack.append(start)
+    while len(stack) > 0:
+        coords = stack.pop();
+        currow = coords[0]
+        curcol = coords[1]
+        lst[currow][curcol] = 1
+        if currow +1 < len(lst) and lst[currow+1][curcol] == 0:
+            stack.append([currow +1, curcol])
+        if currow -1 > -1 and lst[currow-1][curcol] == 0:
+            stack.append([currow-1, curcol])
+        if curcol +1 < len(lst[0]) and lst[currow][curcol+1] == 0:
+            stack.append([currow, curcol +1])
+        if curcol-1 > -1 and lst[currow][curcol-1] == 0:
+            stack.append([currow, curcol-1])
+        if (currow == exit[0] and curcol == exit[1]):
+            return True
+    return False
+
+print(can_exit([
+	[0, 1, 1, 1, 1, 1, 1], 
+	[0, 0, 1, 1, 0, 1, 1], 
+	[1, 0, 0, 0, 0, 1, 1], 
+	[1, 1, 1, 1, 0, 0, 1], 
+	[1, 1, 1, 1, 1, 0, 0]
+]))
+
 def strstr(s, x):
     for i in range(len(s) - len(x) +1):
         if s[i:i+len(x)] == x:
             return i
     return -1
 
-print(strstr("ssx", "sx"))
 
 
 def amendTheSentence(s):
