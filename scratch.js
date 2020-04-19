@@ -1,3 +1,56 @@
+function canMove(piece, current, target) {
+  const colMap = {
+    "A": 1,
+    "B": 2,
+    "C": 3,
+    "D": 4,
+    "E": 5,
+    "F": 6,
+    "G": 7,
+    "H": 8
+  }
+
+	let [curcol, currow] = current.split("")
+  let [tcol, trow] = target.split("")
+  
+  // set all values to integers for easier checking
+  curcol = colMap[curcol]
+  currow = Number(currow)
+  tcol = colMap[tcol]
+  trow = Number(trow)
+
+
+	switch (piece) {
+    case "Pawn":
+      if (curcol != tcol) return false
+      if (Math.abs(trow - currow) == 1) return true
+      if (currow === 2 && trow === 4) return true
+      if (currow === 7 && trow === 5) return true
+      return false
+      break
+    case "Rook":
+      if (curcol !== tcol && currow !== trow) return false
+      if (curcol === tcol && currow === trow) return false
+      return true
+      break
+    case "Bishop":
+      if (Math.abs(tcol - curcol) !== Math.abs(trow - currow)) return false
+      if (curcol === tcol && currow === trow) return false
+      return true
+      break
+    case "Knight":
+      break
+    
+    case "Queen":
+      break
+
+    case "King":
+      break
+
+  }
+}
+console.log(canMove("Rook", "A1", "B1"))
+
 function nodeType(n, p, val) {
   let hash = {}
   for (let i =0; i < n.length; i++) {
@@ -68,7 +121,6 @@ function canComplete(fragment, word) {
   return false
 }
 
-console.log(canComplete("tulb", "beautiful"))
 
 function edaPlatform(stage, commands) {
   // start the player in the lower left
@@ -199,7 +251,6 @@ function factorial(n) {
   }
   return total
 }
-console.log(factorial(101))
 
 function hasHiddenFee(prices, t) {
   const total = prices.reduce((a,b) => a + Number(b.replace("$", "")), 0)
