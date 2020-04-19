@@ -156,7 +156,6 @@ def isValid(s):
                 return "NO"
     return "YES"
 
-
 def whatFlavors(cost, money):
     hash = {}
     for i in range(len(cost)):
@@ -183,10 +182,7 @@ def isBalanced(s):
             last = stack.pop()
             if pairs[last] != i:
                 return "NO"
-
     return "YES"
-
-
 
 def countTriplets(arr, r):
     counthash = {}
@@ -206,9 +202,6 @@ def countTriplets(arr, r):
         else:
             counthash[i * r] = 1
     return count
-
-
-
 
 def pythTrip():
     for i in range(1,30):
@@ -233,7 +226,6 @@ def sherlockAndAnagrams(s):
         while total > 1:
             total -= 1
             count += total
-            
     return count
 
 def threeSum(nums):
