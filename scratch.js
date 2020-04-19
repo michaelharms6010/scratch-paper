@@ -1,11 +1,3 @@
-
-function isPandigital(num) {
-  let num=1234567890
-  num = [...new Set(String(num).split(""))].sort().join("")
-}
-
-
-
 function nodeType(n, p, val) {
   let hash = {}
   for (let i =0; i < n.length; i++) {
@@ -123,7 +115,7 @@ function edaPlatform(stage, commands) {
 }
 
 function isPandigital(num) {
-  num = [...new Set(String(num).split(""))].sort()
+  num = [...new Set(String(num).split(""))].sort().join("")
 	return num.includes("0123456789")
 }
 
