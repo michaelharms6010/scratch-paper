@@ -90,7 +90,6 @@ class MinStack:
 # obj.pop()
 # obj.getMin()
 
-
 def longestCommonSubstring(s, t):
     hash = {}
     length = 0
@@ -115,28 +114,6 @@ def longestCommonSubstring(s, t):
             length -= 1
                     
     return length
-
-
-
-# def longestCommonSubstring(s, t):
-#     hash = {}
-#     length = 0
-#     for i in range(len(s)):
-#         for j in range(len(s[i:])):
-#             if not hash.get(s[i:j+i+1]):
-#                 hash[s[i:j+i+1]] = 1
-#     for i in range(len(t)):
-#         new = False
-#         if hash.get(t[i]):
-#             if not length:
-#                 length = 1
-#             while hash.get(t[i:i + length]) and i + length < len(t):
-#                 length += 1
-#                 new = True
-#         if not hash.get(t[i:i + length]) and new:
-#                     length -= 1
-#     return length
-
 
 def containsCloseNums(nums, k):
     if len(nums) < 2:
