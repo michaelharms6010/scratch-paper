@@ -1,6 +1,19 @@
 const assert = require("assert")
 
+function getNextPosition(p1, p2, dist) {
+  let distx = Math.abs(p2.x - p1.x);
+  let disty = Math.abs(p2.y - p1.y);
+  let distbetween = (distx **2 + disty **2) ** .5;
+  let cos = disty / distbetween;
+  let sin = distx / distbetween;
+  let ty = Math.round(cos * dist)
+  let tx = Math.round(sin * dist)
+  if (p2.x < p1.x) tx *= -1
+  return {x: p1.x + tx,y: p1.y + ty}
 
+}
+
+console.log(getNextPosition({x: 250, y: 10}, {x: -20, y: 35}, 55))
 
 function isFullHouse(hand) {
 	let hash = {}
