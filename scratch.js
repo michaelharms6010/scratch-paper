@@ -40,12 +40,10 @@ function diceRange(str) {
   if (str[0] === "d") {
     numDice = 1
   }
-
   let minimum = 1 * numDice + modifier 
 	let maximum = faces * numDice + modifier
 	return [minimum, maximum]
 }
-
 
 function canExit(arr) {
 	let start = [0,0];
@@ -70,7 +68,6 @@ function canExit(arr) {
     }
     if (currow === exit[0] && curcol === exit[1]) return true
   }
-
   return false
 }
 
@@ -162,12 +159,6 @@ assert.equal(canExit([
 	[0, 1, 1, 1, 1, 1, 0], 
 	[0, 0, 0, 0, 0, 1, 0]
 ]), false)
-
-
-
-
-
-
 
 function canEnterCave(x) {
   let start = findStart(x);
