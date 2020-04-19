@@ -463,12 +463,8 @@ function isPandigital(num) {
 	return num.includes("0123456789")
 }
 
-isPandigital(12345555)
-
-
 function largestIsland(map) {
   const sizes = []
-  
 	for (let i = 0; i < map.length; i++) {
     for (let j = 0; j < map[0].length; j++) {
       if (map[i][j]) {
@@ -574,12 +570,6 @@ function groupingDishes(dishes) {
   return output.sort((a,b) => (a[0].charCodeAt(0) - b[0].charCodeAt(0)))
 }
 
-groupingDishes([["Salad","Tomato","Cucumber","Salad","Sauce"], 
-["Pizza","Tomato","Sausage","Sauce","Dough"], 
-["Quesadilla","Chicken","Cheese","Sauce"], 
-["Sandwich","Salad","Bread","Tomato","Cheese"]])
-
-
 function ulam(n) {
   if (n <=4 ) return n
   let sequence = [1,2];
@@ -623,9 +613,6 @@ function getSubsets(arr, num) {
 	}
 	return counter[num]
 }
-
-
-
 
 function iqr(arr) {
   let leftSide, rightSide = [];
