@@ -21,7 +21,6 @@ function nodeType(n, p, val) {
   }
 }
 
-
 function palindromeSieve(nums) {
   const output = [];
 
