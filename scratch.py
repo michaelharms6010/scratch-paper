@@ -251,7 +251,6 @@ def sumSubsets(arr, target):
                 if sum(subset) == target:
                     output.push(subset)
 
-
     def allSubs(l):
         if len(l) == 1:
             return [l]
@@ -260,8 +259,7 @@ def sumSubsets(arr, target):
         output = output+subsets
         output.append([l[-1]])
         for subset in subsets:
-            output.append(subset+[l[-1]])
-            
+            output.append(subset+[l[-1]]) 
         return output
 
     def first(i):
@@ -278,9 +276,6 @@ def sumSubsets(arr, target):
     subsets.sort(key=second)
     subsets.sort(key=first)
     return subsets
-
-
-
 
 def balancedBrackets(string):
     matches = {
@@ -316,7 +311,6 @@ def total_subsets_matching_sum(numbers, sum):
     for current_number in numbers:
         for num in range(sum - current_number, -1, -1):
             if array[num]:
-                
                 array[num + current_number] += array[num]
                 print(array)
     return array[sum]
