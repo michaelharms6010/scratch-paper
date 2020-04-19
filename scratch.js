@@ -19,7 +19,6 @@ function findFrequent(arr) {
   if (nums.includes(output)) {
     return Number(output)
   }
-  console.log(hash)
   if (bools.includes(output)) {
     if (output === "false") {
       return false
@@ -32,8 +31,6 @@ function findFrequent(arr) {
   }
   return output
 }
-
-console.log(findFrequent([false, "up", "down", "left", "right", true, false]))
 
 function harshad(num) {
   if (!isHarshad(num)) return [0,0]
