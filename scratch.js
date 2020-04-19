@@ -1,5 +1,28 @@
 const assert = require("assert")
 
+function diceRange(str) {
+  let numDice = Number(str.split("d")[0])
+  let faces, modifier;
+  if (str.includes("+")) {
+	  [faces, modifier] = str.split("d").slice(1).join("").split("+").map(item => Number(item))
+  } else if (str.includes("-")) {
+    [faces, modifier] = str.split("d").slice(1).join("").split("-").map(item => Number(item)) 
+    modifier *= -1
+  } else {
+    faces = Number(str.split("d")[1])
+    modifier = 0
+  }
+  if (str[0] === "d") {
+    numDice = 1
+  }
+  console.log(faces)
+  let minimum = 1 * numDice + modifier 
+	let maximum = faces * numDice + modifier
+	return [minimum, maximum]
+}
+
+console.log(diceRange("d6"))
+
 function canExit(arr) {
 	let start = [0,0];
   let exit = [arr.length-1, arr[0].length-1]
