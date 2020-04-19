@@ -1,3 +1,5 @@
+const assert = require("assert")
+
 function canMove(piece, current, target) {
   const colMap = {
     "A": 1,
@@ -39,17 +41,37 @@ function canMove(piece, current, target) {
       return true
       break
     case "Knight":
+      if (Math.abs(tcol - curcol) === 1 && Math.abs(trow - currow) === 2) return true
+      if (Math.abs(tcol - curcol) === 2 && Math.abs(trow - currow) === 1) return true
+      return false
       break
     
     case "Queen":
+      if (Math.abs(tcol - curcol) === Math.abs(trow - currow)) return true
+      if (tcol === curcol || trow === currow) return true
+      return false
       break
-
     case "King":
+      if (Math.abs(tcol - curcol) <=1 && Math.abs(trow - currow) <=1) return true
+      return false
       break
 
   }
 }
-console.log(canMove("Rook", "A1", "A8"))
+console.log(canMove("Bishop", "A1", "D5"))
+assert.equal(canMove("Pawn", "A5", "A6"), true)
+assert.equal(canMove("Pawn", "G2", "G4"), true)
+assert.equal(canMove("Pawn", "C6", "D7"), false)
+assert.equal(canMove("Knight", "F5", "E3"), true)
+assert.equal(canMove("Knight", "F6", "E5"), false)
+assert.equal(canMove("Bishop", "B4", "E7"), true)
+assert.equal(canMove("Bishop", "B6", "F5"), false)
+assert.equal(canMove("Rook", "A8", "H8"), true)
+assert.equal(canMove("Rook", "A8", "H7"), false)
+assert.equal(canMove("Queen", "A8", "H1"), true)
+assert.equal(canMove("Queen", "A6", "H4"), false)
+assert.equal(canMove("King", "C4", "D5"), true)
+assert.equal(canMove("King", "B7", "B5"), false)
 
 function nodeType(n, p, val) {
   let hash = {}
