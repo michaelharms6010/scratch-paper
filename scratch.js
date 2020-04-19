@@ -372,7 +372,6 @@ function nodeType(n, p, val) {
 
 function palindromeSieve(nums) {
   const output = [];
-
   for (let i = 0; i < nums.length; i++) {
     let hash = {}
     let odds = 0
@@ -422,7 +421,6 @@ function edaPlatform(stage, commands) {
   let inputs = commands.split("")
   // a queue for moves
   let moves = []
-
   while (col < stage[0].length) {
     if ((stage[row][col]) === "!") {
       return `Game over! Your score: ${score}!`
@@ -517,7 +515,6 @@ function largestIsland(map) {
   }
   return Math.max(...sizes)
 }
-
 
 function smallest(n) {
   let divisible = true
@@ -1023,7 +1020,6 @@ function rootDigit(n) {
 		numarr = String(total).split("").map(item => Number(item))
 	}
 	return numarr[0]
-	
 }
 
 function getFrame(w,h,symbol) {
@@ -1046,5 +1042,4 @@ function getFrame(w,h,symbol) {
     }
     output.push([border])
     return output
-    
 }
