@@ -2,6 +2,12 @@ const assert = require("assert")
 
 // edabit challenges
 
+function makeTitle(str) {
+	let arr = str.split(" ")
+	arr = arr.map(item => item[0].toUpperCase() + item.substr(1))
+	return arr.join(" ")
+}
+
 function findFrequent(arr) {
   const nums = "0123456789"
   const bools= ["true", "false"]
