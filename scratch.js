@@ -922,7 +922,6 @@ function isPalindrome(str) {
     return str === reverseString(str)
 }
 
-
 function classifyRug(pattern) {
 	let vertical = true
 	let horizontal = true
@@ -943,7 +942,6 @@ function classifyRug(pattern) {
         return "imperfect"
     }
 }
-
 
 function bucketize(phrase, n) {
     let bucket = ""
@@ -1005,14 +1003,10 @@ function distanceToNearestVowel(str) {
                 distances.push(offset)
             }
             offset += 1
-        }
-        
+        }    
     }
     return distances
 }
-
-
-
 
 function minSwaps(s1, s2) {
 	let count = 0;
