@@ -637,7 +637,6 @@ function getMedian(arr) {
   }
 }
 
-
 function isGoalScored(goal) {
 	goal.map(item => {
 	let sides = item[0].split("0")
@@ -646,7 +645,6 @@ function isGoalScored(goal) {
 	if (sides.length > 1) {
 		if (left.includes("#") && right.includes("#")) return true
 	}
-
 	})
 	return false
 }
@@ -659,7 +657,6 @@ function barChart(results) {
 			str += "#"
     } 
     if (str) str += " "
-		
 		resultArr.push({quarter: key, amount: results[key], graph: str })
   }
   
@@ -668,8 +665,6 @@ function barChart(results) {
   resultArr = resultArr.map(item => `${item.quarter}|${item.graph}${item.amount}`)
   return resultArr.join("\n")
 }
-
-
 
 function isPrime(n){
     if (n===2 || n===3) return true
@@ -681,9 +676,6 @@ function isPrime(n){
 	}
     return true
 }
-
-
-
 
 function interprime(n) {
 	const primes = []
