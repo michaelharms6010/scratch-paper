@@ -1,5 +1,19 @@
 const assert = require("assert")
 
+function isFullHouse(hand) {
+	let hash = {}
+	for (let i = 0 ; i < hand.length; i++) {
+		if (hash[i]) {
+			hash[i] += 1
+		} else {
+			hash[i] = 1
+		}
+	}
+	return Object.values(hash).includes(3) && Object.values(hash).includes(2)
+}
+
+console.log(isFullHouse(['A', 'A', 'A', 'K', 'K']))
+
 function diceRange(str) {
   let numDice = Number(str.split("d")[0])
   let faces, modifier;
@@ -15,13 +29,12 @@ function diceRange(str) {
   if (str[0] === "d") {
     numDice = 1
   }
-  console.log(faces)
+
   let minimum = 1 * numDice + modifier 
 	let maximum = faces * numDice + modifier
 	return [minimum, maximum]
 }
 
-console.log(diceRange("d6"))
 
 function canExit(arr) {
 	let start = [0,0];
@@ -309,7 +322,6 @@ function canMove(piece, current, target) {
 
   }
 }
-console.log(canMove("Bishop", "A1", "D5"))
 assert.equal(canMove("Pawn", "A5", "A6"), true)
 assert.equal(canMove("Pawn", "G2", "G4"), true)
 assert.equal(canMove("Pawn", "C6", "D7"), false)
