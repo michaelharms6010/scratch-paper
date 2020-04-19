@@ -866,19 +866,6 @@ const roads = {
   graph,
 };
 
-const arr = ["mike", "nina", "jerry", "george","elaine","kramer"]
-
-// const capitalized = arr.map(name => name.toUpperCase())
-
-// console.log(capitalized)
-
-// const containsI = arr.filter(name => name.includes("i"))
-
-// console.log(containsI)
-
-
-
-
 function stripUrlParams(url, paramsToStrip=[]) {
     if (!url.includes("?")) return url
 	let output = ""
@@ -895,7 +882,6 @@ function stripUrlParams(url, paramsToStrip=[]) {
     let newQuery = Object.keys(hash).map(key => `${key}=${hash[key]}`).join("&")
     return output + newQuery
 }
-
 
 const prices = {
 	Strawberries: "$1.50", Banana: "$0.50", Mango: "$2.50",
