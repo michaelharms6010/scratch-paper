@@ -2,6 +2,41 @@ const assert = require("assert")
 
 // edabit challenges
 
+function findFrequent(arr) {
+	const hash = {}
+	for (let i = 0; i < arr.length; i ++) {
+		let key = String(arr[i])
+		if (hash[key]) {
+			hash[key] +=1
+		} else {
+			hash[key] = 1
+		}
+	}
+}
+
+function harshad(num) {
+  if (!isHarshad(num)) return [0,0]
+  let lower = num;
+  let upper = num;
+  while (isHarshad(lower)) {
+    lower -= 1
+  }
+  lower += 1
+  while (isHarshad(upper)) {
+    upper += 1
+  }
+  upper -= 1
+  let length = upper -lower +1
+  let pos = num-lower +1
+  return [length, pos]
+
+  function isHarshad(num) {
+    return num % String(num).split("").map(item => Number(item)).reduce((a,b) => a + b, 0) ===0
+  }
+}
+console.log(harshad(5))
+
+
 function sigilize(desire) {
   const vowels = "aeoiu "
   output = []
