@@ -692,8 +692,8 @@ function interprime(n) {
 
 function navigate(roads, startingNode, endingNode) {
 	let edges = roads.graph.edges;
-    const paths = [];
-    const finishedPaths = []
+  const paths = [];
+  const finishedPaths = []
 	let path = null;
 	paths.push({distance: 0, path: [startingNode]});
 	while (paths.length > 0) {
