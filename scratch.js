@@ -1,3 +1,5 @@
+const assert = require("assert")
+
 // edabit challenges
 
 function sigilize(desire) {
@@ -14,10 +16,6 @@ function sigilize(desire) {
   }
 	return output.join("").toUpperCase()
 }
-
-console.log(sigilize("I HAVE WONDERFUL FRIENDS WHO LOVE ME"))
-
-const assert = require("assert")
 
 function getNextPosition(p1, p2, dist) {
   let distx = Math.abs(p2.x - p1.x);
