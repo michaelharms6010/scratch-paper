@@ -1,5 +1,5 @@
 # Edabit, Codesignal, and Hackerrank Challenges
- 
+
 def can_exit(lst):
     start = [0,0]
     exit = [len(lst)-1, len(lst[0])-1]
