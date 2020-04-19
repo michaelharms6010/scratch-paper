@@ -3,6 +3,8 @@ const assert = require("assert")
 // edabit challenges
 
 function findFrequent(arr) {
+  const nums = "0123456789"
+  const bools= ["true", "false"]
 	const hash = {}
 	for (let i = 0; i < arr.length; i ++) {
 		let key = String(arr[i])
@@ -11,8 +13,27 @@ function findFrequent(arr) {
 		} else {
 			hash[key] = 1
 		}
-	}
+  }
+  let max = Math.max(...Object.values(hash))
+  let output = Object.keys(hash).find(key => hash[key] === max)
+  if (nums.includes(output)) {
+    return Number(output)
+  }
+  console.log(hash)
+  if (bools.includes(output)) {
+    if (output === "false") {
+      return false
+    }
+    return Boolean(output)
+  } if (output === "null") {
+    return null
+  } if (output === "undefined") {
+    return undefined
+  }
+  return output
 }
+
+console.log(findFrequent([false, "up", "down", "left", "right", true, false]))
 
 function harshad(num) {
   if (!isHarshad(num)) return [0,0]
@@ -34,8 +55,6 @@ function harshad(num) {
     return num % String(num).split("").map(item => Number(item)).reduce((a,b) => a + b, 0) ===0
   }
 }
-console.log(harshad(5))
-
 
 function sigilize(desire) {
   const vowels = "aeoiu "
