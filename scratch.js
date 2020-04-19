@@ -1,14 +1,16 @@
 const assert = require("assert")
 
+
+
 function isFullHouse(hand) {
 	let hash = {}
 	for (let i = 0 ; i < hand.length; i++) {
-		if (hash[i]) {
-			hash[i] += 1
+		if (hash[hand[i]]) {
+			hash[hand[i]] += 1
 		} else {
-			hash[i] = 1
+			hash[hand[i]] = 1
 		}
-	}
+  }
 	return Object.values(hash).includes(3) && Object.values(hash).includes(2)
 }
 
