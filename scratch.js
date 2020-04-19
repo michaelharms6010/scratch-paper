@@ -13,8 +13,6 @@ function getNextPosition(p1, p2, dist) {
 
 }
 
-console.log(getNextPosition({x: 250, y: 10}, {x: -20, y: 35}, 55))
-
 function isFullHouse(hand) {
 	let hash = {}
 	for (let i = 0 ; i < hand.length; i++) {
