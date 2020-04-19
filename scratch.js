@@ -1,5 +1,22 @@
 // edabit challenges
 
+function sigilize(desire) {
+  const vowels = "aeoiu "
+  output = []
+	desire = desire.toLowerCase()
+	for (let i =0 ; i < vowels.length; i++) {
+		desire = desire.split(vowels[i]).join("")
+  }
+  for (let i = desire.length-1; i >=0; i--) {
+    if (!output.includes(desire[i])) {
+      output.unshift(desire[i])
+    }
+  }
+	return output.join("").toUpperCase()
+}
+
+console.log(sigilize("I HAVE WONDERFUL FRIENDS WHO LOVE ME"))
+
 const assert = require("assert")
 
 function getNextPosition(p1, p2, dist) {
