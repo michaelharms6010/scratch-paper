@@ -10,7 +10,6 @@ function getNextPosition(p1, p2, dist) {
   let tx = Math.round(sin * dist)
   if (p2.x < p1.x) tx *= -1
   return {x: p1.x + tx,y: p1.y + ty}
-
 }
 
 function isFullHouse(hand) {
