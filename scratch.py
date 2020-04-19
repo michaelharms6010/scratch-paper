@@ -315,7 +315,6 @@ def total_subsets_matching_sum(numbers, sum):
                 print(array)
     return array[sum]
 
-
 def twoStrings(s1, s2):
     hash = {}
     for i in range(len(s1)):
@@ -337,18 +336,7 @@ def twoStrings(s1, s2):
     print(anagrams)
     max_length = max(len(i) for i in anagrams)
     return len(s1)-max_length + len(s2)-max_length
-    
-
-# def twoStrings(s1, s2):
-#     hash = {}
-#     for i in range(len(s1)):
-#         hash[s1[i]] = 1
-#     print(hash)
-#     for i in range(len(s2)):
-#         if s2[i] in hash.keys():
-#             print("YES")
-#     print("NO")            
- 
+        
 def pageCount(n, p):
     # pages from start
     from_start = p // 2
