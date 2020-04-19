@@ -36,8 +36,6 @@ def strstr(s, x):
             return i
     return -1
 
-
-
 def amendTheSentence(s):
     sentence = ""
     word = ""
@@ -55,8 +53,6 @@ def amendTheSentence(s):
             word += s[i]
     sentence += word.lower()
     return sentence
-
-
 
 class MinStack:
 
@@ -84,17 +80,16 @@ class MinStack:
     def getMin(self) -> int:
         return self.min_values[-1]
 
-
-
-obj = MinStack()
-obj.push(-2)
-obj.push(-3)
-obj.push(0)
-obj.push(5)
+# obj = MinStack()
+# obj.push(-2)
+# obj.push(-3)
+# obj.push(0)
+# obj.push(5)
+# obj.getMin()
 # obj.push(x)
 # obj.pop()
-# param_3 = obj.top()
-# param_4 = obj.getMin()
+# obj.getMin()
+
 
 def longestCommonSubstring(s, t):
     hash = {}
