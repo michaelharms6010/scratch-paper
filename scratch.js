@@ -2,6 +2,8 @@ const assert = require("assert")
 
 // edabit challenges
 
+
+
 function makeTitle(str) {
 	let arr = str.split(" ")
 	arr = arr.map(item => item[0].toUpperCase() + item.substr(1))
