@@ -10,6 +10,51 @@ function codeSharer() {
 
 // edabit challenges
 
+function checkBoard(col, row) {
+  row = 8 -row;
+  colMap = {
+    "a": 0,
+    "b": 1,
+    "c": 2,
+    "d": 3,
+    "e": 4,
+    "f": 5,
+    "g": 6,
+    "h": 7
+  }
+  col = colMap[col];
+  output = []
+  for (let i = 0; i < 8; i++) {
+    output.push([])
+    output[i].push(0,0,0,0,0,0,0,0)
+  }
+  for (let y = 0; y < 8; y++) {
+    for (let x = 0; x < 8; x++) {
+      if (x === col || y === row) {
+        output[y][x] = 1;
+      }
+      
+      for (let i = 1; i < 8; i++) {
+        if (output[row+i] !== undefined && output[row+i][col +i] !== undefined) {
+          output[row +i][col+i] = 1
+        } if (output[row-i] !== undefined && output[row-i][col -i] !== undefined) {
+          output[row -i][col-i] = 1
+        } if (output[row-i] !== undefined && output[row-i][col +i] !== undefined) {
+          output[row -i][col+i] = 1
+        }
+        if (output[row+i] !== undefined && output[row+i][col -i] !== undefined) {
+          output[row +i][col-i] = 1
+        }
+      }
+      
+
+    }
+  }
+  output[row][col] = 0
+  return output
+}
+checkBoard("c", 5)
+
 function canTraverse(x) {
   let col = 0;
   let row = 3;
