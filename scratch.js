@@ -10,6 +10,36 @@ function codeSharer() {
 
 // edabit challenges
 
+function canTraverse(x) {
+  let col = 0;
+  let row = 3;
+  while (x[row][col] != 0) {
+    row -= 1
+  }
+  while (col < x[0].length -1) {
+    if (x[row + 1] && x[row +1][col+1] === 0) {
+      if (x[row+2] && x[row +2][col+1] === 0) return false
+      row += 1;
+      col += 1;
+    } else if (x[row][col+1] === 0) {
+      col += 1;
+    } else if (x[row-1][col+1] === 0) {
+      col += 1;
+      row -= 1;
+    } else {
+      return false
+    }
+  }
+  return true
+}
+
+assert.equal(canTraverse([
+  [0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 1, 1, 0, 0, 0, 0],
+  [0, 0, 1, 1, 1, 1, 1, 0, 0],
+  [0, 1, 1, 1, 1, 1, 1, 1, 0]
+]), true)
+
 function ticTacToeCheck(grid) {
   //validity checking
   const invalids = "ABCDEFGHIJKLMNPQURSTUVWYZ"
