@@ -1,5 +1,20 @@
 # Edabit, Codesignal, and Hackerrank Challenges
 
+def twoSum(nums, target):
+    """
+    :type nums: List[int]
+    :type target: int
+    :rtype: List[int]
+    """
+    hash = {}
+    for i in range(len(nums)):     
+        if hash.get(nums[i]) != None:
+            return [hash[nums[i]], i]
+        hash[target-nums[i]] = i
+    
+print(twoSum([3,2,4], 6))
+
+
 def can_exit(lst):
     start = [0,0]
     exit = [len(lst)-1, len(lst[0])-1]
