@@ -5,7 +5,8 @@ function codeSharer() {
   const choice = team[Math.floor(Math.random() * team.length)]
   return choice
 }
-console.log(codeSharer())
+// uncomment the line below to randomly select a teammate
+// console.log(codeSharer())
 
 // edabit challenges
 
