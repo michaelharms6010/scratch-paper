@@ -1,5 +1,12 @@
 const assert = require("assert")
 
+function codeSharer() {
+  const team = ["Sean", "Simon", "Ali", "Vincent", "Michael", "Batuhan"]
+  const choice = team[Math.floor(Math.random() * team.length)]
+  return choice
+}
+console.log(codeSharer())
+
 // edabit challenges
 
 
