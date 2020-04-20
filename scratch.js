@@ -12,6 +12,25 @@ function codeSharer() {
 
 // edabit challenges
 
+var reverse = function(x) {
+  let max = 2 ** 31 -1
+  let min = -(2 ** 31)
+  let negative;
+  let arr = String(x).split("");
+  if (arr[0] === "-") {
+      negative=true
+      arr = arr.slice(1)
+  }
+  let reversed = Number(arr.reverse().join(""))
+  if (negative) reversed *= -1
+  if (reversed > max) return 0
+  if (reversed < min) return 0
+  return reversed
+};
+
+console.log(reverse(-123))
+
+
 function rolls(arr) {
   total = 0
 	for (let i = 0 ; i < arr.length; i++) {
