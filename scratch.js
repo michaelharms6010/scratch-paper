@@ -10,7 +10,43 @@ function codeSharer() {
 
 // edabit challenges
 
+function ticTacToeCheck(grid) {
+  //validity checking
+  const invalids = "ABCDEFGHIJKLMNPQURSTUVWYZ"
+  if (!grid) return "No/Incomplete game"
+  if (!grid.length) return "No/Incomplete game"
+  for (let i = 0; i < grid.length; i++) {
+    if (typeof grid[i][0] !== "string" || invalids.includes(grid[i][0].toUpperCase())) return "Corrupted game"
+  }
 
+
+
+
+  // game checking
+  grid = grid.map( item => item[0])
+  if (grid[0] === "---" && grid[1] === "---" && grid[2] === "---") {
+    return "Nobody moved"
+  } 
+  if (grid[0][0] === grid[1][1] && grid[0][0] === grid[2][2] && "XO".includes(grid[0][0])) return true
+  if (grid[0][2] === grid[1][1] && grid[0][2] === grid[2][0] && "XO".includes(grid[0][2])) return true
+  for (let i = 0; i < grid.length; i++) {
+    if (new Set(grid[i]).size === 1) {return true}
+    if (grid[0][i] === grid[1][i] && grid[0][i] === grid[2][i] && "XO".includes(grid[0][i])) {return true}
+  }
+  return false
+}
+
+assert.equal(ticTacToeCheck([["-X-"],["OXO"],["--O"]]),false);
+assert.equal(ticTacToeCheck([["O-X"],["XOO"],["XOX"]]),false);
+assert.equal(ticTacToeCheck([["-XO"],["XOX"],["O-O"]]),true);
+assert.equal(ticTacToeCheck([["--X"],["-O-"],["-O-"]]),false);
+assert.equal(ticTacToeCheck([["---"],["---"],["X--"]]),false);
+assert.equal(ticTacToeCheck([["XOO"],["X--"],["XOO"]]),true);
+assert.equal(ticTacToeCheck([["XO-"],["OX-"],["X-O"]]),false);
+assert.equal(ticTacToeCheck([["-OX"],["---"],["--X"]]),false);
+assert.equal(ticTacToeCheck([["---"],["-OO"],["X--"]]),false);
+
+console.log(ticTacToeCheck([["XO-"], ["X-O"], ["O-X"]]))
 
 function makeTitle(str) {
 	let arr = str.split(" ")
