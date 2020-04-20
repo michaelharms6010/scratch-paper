@@ -1,5 +1,25 @@
 # Edabit, Codesignal, and Hackerrank Challenges
 
+def threeSum(nums):
+        output = []
+        nums.sort()
+        for i in range(len(nums)):
+            left = i+1
+            right = len(nums) -1
+           
+            
+            while right > left:
+                sum = nums[i] + nums[left] + nums[right]
+                if sum == 0:
+                    if [nums[i], nums[left], nums[right]] not in output:
+                        output.append([nums[i], nums[left], nums[right]])
+                if sum <= 0:
+                    left += 1
+                if sum > 0:
+                    right -= 1
+        return output
+print(threeSum([-1,0,1,2,-1,-4]))
+
 def twoSum(nums, target):
     """
     :type nums: List[int]
