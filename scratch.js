@@ -1,5 +1,7 @@
 const assert = require("assert")
 
+
+
 function codeSharer() {
   const team = ["Sean", "Simon", "Ali", "Vincent", "Michael", "Batuhan"]
   const choice = team[Math.floor(Math.random() * team.length)]
@@ -9,6 +11,23 @@ function codeSharer() {
 // console.log(codeSharer())
 
 // edabit challenges
+
+function rolls(arr) {
+  total = 0
+	for (let i = 0 ; i < arr.length; i++) {
+		if (arr[i-1] && arr[i-1] ===1) {
+		  total += 0
+		}
+		else if (arr[i-1] && arr[i-1] ===6) {
+			total  += 2 * arr[i]
+    }
+    else {
+      total += arr[i]
+    }
+		
+  }
+  return total
+}
 
 function checkBoard(col, row) {
   row = 8 -row;
