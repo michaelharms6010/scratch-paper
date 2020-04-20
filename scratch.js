@@ -36,18 +36,6 @@ function ticTacToeCheck(grid) {
   return false
 }
 
-assert.equal(ticTacToeCheck([["-X-"],["OXO"],["--O"]]),false);
-assert.equal(ticTacToeCheck([["O-X"],["XOO"],["XOX"]]),false);
-assert.equal(ticTacToeCheck([["-XO"],["XOX"],["O-O"]]),true);
-assert.equal(ticTacToeCheck([["--X"],["-O-"],["-O-"]]),false);
-assert.equal(ticTacToeCheck([["---"],["---"],["X--"]]),false);
-assert.equal(ticTacToeCheck([["XOO"],["X--"],["XOO"]]),true);
-assert.equal(ticTacToeCheck([["XO-"],["OX-"],["X-O"]]),false);
-assert.equal(ticTacToeCheck([["-OX"],["---"],["--X"]]),false);
-assert.equal(ticTacToeCheck([["---"],["-OO"],["X--"]]),false);
-
-console.log(ticTacToeCheck([["XO-"], ["X-O"], ["O-X"]]))
-
 function makeTitle(str) {
 	let arr = str.split(" ")
 	arr = arr.map(item => item[0].toUpperCase() + item.substr(1))
