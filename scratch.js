@@ -53,7 +53,6 @@ function checkBoard(col, row) {
   output[row][col] = 0
   return output
 }
-checkBoard("c", 5)
 
 function canTraverse(x) {
   let col = 0;
