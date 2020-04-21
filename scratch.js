@@ -15,6 +15,7 @@ function codeSharer() {
 }
 
 console.log(codeSharer())
+assert.deepEqual([1,2], [1,2])
 // ensures the output is a string
 assert.equal(typeof codeSharer(), "string")
 // ensures the output is one of our team members
@@ -23,6 +24,28 @@ assert.ok(["Ali", "Simon", "Mike", "Batuhan", "Brett", "Wade", "Vincent", "Sean"
 // uncomment the line below to randomly select a teammate
 
 // edabit challenges
+
+function dartsSolver(sections, darts, target) {
+	let count = 0
+	hash = {}
+	while (count < darts) {
+		for (let i in sections) {
+      console.log(sections[i])
+			if (!hash[sections[i]]) {
+				hash[sections[i]] = [sections[i]]
+			}
+			for (key in hash) {
+        if (hash[Number(key) + sections[i]]) {
+          hash[Number(key) + sections[i]].push([...hash[key], sections[i]])
+        } else {
+          hash[Number(key) + sections[i]] = [...hash[key], sections[i]]
+        }
+			}
+		}
+	count += 1
+  }
+  console.log(hash)
+}
 
 var groupAnagrams = function(strs) {
   let obj = {}
