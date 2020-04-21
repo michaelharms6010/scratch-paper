@@ -28,8 +28,6 @@ var reverse = function(x) {
   return reversed
 };
 
-console.log(reverse(-123))
-
 
 function rolls(arr) {
   total = 0
