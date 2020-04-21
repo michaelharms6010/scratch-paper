@@ -1,4 +1,8 @@
 # Edabit, Codesignal, and Hackerrank Challenges
+import itertools
+
+data=[3,4,5,6,2,1,9,0]
+print(list(itertools.accumulate(data, max)))
 
 string = "hello"
 print(sorted(string))
