@@ -10,11 +10,6 @@ function codeSharer() {
 
 // edabit challenges
 
-hands = [["A_S", "J_H", "7_D", "8_D", "10_D"], ["J_D", "3_D"] ]
-
-cards = hands[0].concat(hands[1])
-suits = cards.map(item => item.split("_")[1])
-
 var reverse = function(x) {
   let max = 2 ** 31 -1
   let min = -(2 ** 31)
