@@ -1,10 +1,12 @@
 const assert = require("assert")
 
 function codeSharer() {
-  const team = ["Sean", "Simon", "Ali", "Vincent", "Michael", "Batuhan"]
+  const team = ["Sean", "Simon"]
   const choice = team[Math.floor(Math.random() * team.length)]
   return choice
 }
+
+console.log(codeSharer())
 // uncomment the line below to randomly select a teammate
 // console.log(codeSharer())
 
