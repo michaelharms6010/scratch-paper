@@ -1,5 +1,44 @@
 # Edabit, Codesignal, and Hackerrank Challenges
 
+def groupAnagrams(strs):
+        hash = {}
+        for i in strs:
+            key = ''.join(sorted(i))
+            if hash.get(key):
+                hash[key].append(i)
+            else:
+                hash[key] = [i]
+            
+        return hash.values()
+
+def makeAnagram(s1, s2):
+    hash = {}
+    hash2 = {}
+    for i in s1:
+        if hash.get(i):
+            hash[i] += 1
+        else:
+            hash[i] = 1
+    totaldeletions = 0
+    for i in s2:
+        if hash2.get(i):
+            hash2[i] += 1
+        else: 
+            hash2[i] = 1
+
+        if hash.get(i):
+            hash[i] -= 1
+        else:
+            totaldeletions += 1
+    for i in s1: 
+        if hash2.get(i):
+            hash2[i] -= 1
+        else: 
+            totaldeletions += 1
+    return totaldeletions
+
+print(makeAnagram("fdsa","jklk"))
+
 def threeSum(nums):
         output = []
         nums.sort()
