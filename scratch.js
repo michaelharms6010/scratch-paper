@@ -20,11 +20,22 @@ assert.equal(typeof codeSharer(), "string")
 // ensures the output is one of our team members
 assert.ok(["Ali", "Simon", "Mike", "Batuhan", "Brett", "Wade", "Vincent", "Sean"].includes(codeSharer()))
 
-
 // uncomment the line below to randomly select a teammate
-// console.log(codeSharer())
 
 // edabit challenges
+
+var groupAnagrams = function(strs) {
+  let obj = {}
+  for(let i in strs){
+    let key = strs[i].split('').sort().join('')
+    if(!obj[key]){
+      obj[key] = [strs[i]]
+    } else {
+      obj[key].push(strs[i])
+    }
+  }
+  return Object.values(obj)
+};
 
 var reverse = function(x) {
   let max = 2 ** 31 -1
