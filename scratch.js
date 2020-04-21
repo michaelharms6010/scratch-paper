@@ -1,7 +1,7 @@
 const assert = require("assert")
 
 function codeSharer() {
-  const team = ["Sean", "Simon"]
+  const team = ["Ali", "Simon", "Mike", "Batuhan"]
   const choice = team[Math.floor(Math.random() * team.length)]
   return choice
 }
