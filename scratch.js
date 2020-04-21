@@ -13,12 +13,14 @@ function codeSharer() {
   const choice = team[Math.floor(Math.random() * team.length)]
   return choice
 }
+
+console.log(codeSharer())
 // ensures the output is a string
 assert.equal(typeof codeSharer(), "string")
 // ensures the output is one of our team members
 assert.ok(["Ali", "Simon", "Mike", "Batuhan", "Brett", "Wade", "Vincent", "Sean"].includes(codeSharer()))
 
-console.log(codeSharer())
+
 // uncomment the line below to randomly select a teammate
 // console.log(codeSharer())
 
