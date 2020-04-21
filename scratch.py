@@ -1,5 +1,9 @@
 # Edabit, Codesignal, and Hackerrank Challenges
 
+string = "hello"
+print(sorted(string))
+
+
 def groupAnagrams(strs):
         hash = {}
         for i in strs:
@@ -37,8 +41,6 @@ def makeAnagram(s1, s2):
             totaldeletions += 1
     return totaldeletions
 
-print(makeAnagram("fdsa","jklk"))
-
 def threeSum(nums):
         output = []
         nums.sort()
@@ -57,7 +59,6 @@ def threeSum(nums):
                 if sum > 0:
                     right -= 1
         return output
-print(threeSum([-1,0,1,2,-1,-4]))
 
 def twoSum(nums, target):
     """
@@ -71,9 +72,6 @@ def twoSum(nums, target):
             return [hash[nums[i]], i]
         hash[target-nums[i]] = i
     
-print(twoSum([3,2,4], 6))
-
-
 def can_exit(lst):
     start = [0,0]
     exit = [len(lst)-1, len(lst[0])-1]
