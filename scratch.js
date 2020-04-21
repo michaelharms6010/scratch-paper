@@ -1,10 +1,22 @@
 const assert = require("assert")
 
+
+let nums = [1,2,3,4,5]
+
+for (let i in nums) {
+  console.log(nums[i])
+}
+
+
 function codeSharer() {
-  const team = ["Ali", "Simon", "Mike", "Batuhan"]
+  const team = ["Ali", "Simon", "Mike", "Batuhan", "Vincent"]
   const choice = team[Math.floor(Math.random() * team.length)]
   return choice
 }
+// ensures the output is a string
+assert.equal(typeof codeSharer(), "string")
+// ensures the output is one of our team members
+assert.ok(["Ali", "Simon", "Mike", "Batuhan", "Brett", "Wade", "Vincent", "Sean"].includes(codeSharer()))
 
 console.log(codeSharer())
 // uncomment the line below to randomly select a teammate
