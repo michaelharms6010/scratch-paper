@@ -1,12 +1,15 @@
 # Edabit, Codesignal, and Hackerrank Challenges
-import itertools
 
-data=[3,4,5,6,2,1,9,0]
-print(list(itertools.accumulate(data, max)))
-
-string = "hello"
-print(sorted(string))
-
+def code(string):
+    output = []
+    for i in string:
+        sumdigs = 0
+        total = str(ord(i))
+        for i in total:
+            sumdigs += int(i)
+        output.append(sumdigs)
+    return output
+print(code("wonderful"))
 
 def groupAnagrams(strs):
         hash = {}
