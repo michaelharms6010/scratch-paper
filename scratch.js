@@ -1,11 +1,11 @@
 const assert = require("assert")
 
-
 let nums = [1,2,3,4,5]
 
-for (let i in nums) {
-  console.log(nums[i])
-}
+let num = "hey i'm a strin2g"
+
+console.log(num.match`\\d`[0]);
+console.log(+num.match`\\d`[0]);
 
 
 function codeSharer() {
@@ -24,6 +24,11 @@ assert.ok(["Ali", "Simon", "Mike", "Batuhan", "Brett", "Wade", "Vincent", "Sean"
 // uncomment the line below to randomly select a teammate
 
 // edabit challenges
+
+function sameAscii(a, b) {
+	return a.split("").reduce((acc,val) => val.charCodeAt(0) + acc, 0) === b.split("").reduce((b,a) => a.charCodeAt(0) + b, 0)
+}
+console.log(eval("((7**2) - ((-7)**2))"))
 
 function dartsSolver(sections, darts, target) {
 	let count = 0
