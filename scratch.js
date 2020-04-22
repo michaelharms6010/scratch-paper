@@ -15,7 +15,7 @@ function codeSharer() {
 }
 
 console.log(codeSharer())
-assert.deepEqual([1,2], [1,2])
+assert.deepEqual([1,2], [2,1])
 // ensures the output is a string
 assert.equal(typeof codeSharer(), "string")
 // ensures the output is one of our team members
