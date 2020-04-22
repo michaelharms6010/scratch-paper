@@ -9,7 +9,7 @@ for (let i in nums) {
 
 
 function codeSharer() {
-  const team = ["Ali", "Simon", "Mike", "Batuhan", "Vincent"]
+  const team = ["Simon", "Batuhan", "Vincent"]
   const choice = team[Math.floor(Math.random() * team.length)]
   return choice
 }
