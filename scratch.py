@@ -1,9 +1,13 @@
 # Edabit, Codesignal, and Hackerrank Challenges
 
 def lcm(nums):
-	max_num = max(nums)
-	product = reduce(lambda a,b: a * b, nums, 1)
-	for i in range(max_num, )
+    max_num = max(nums)
+    product = 1
+    for i in nums:
+        product *= i
+    print(product)
+
+lcm([1,2,3])
 
 def code(string):
     output = []
@@ -106,14 +110,6 @@ def can_exit(lst):
         if (currow == exit[0] and curcol == exit[1]):
             return True
     return False
-
-print(can_exit([
-	[0, 1, 1, 1, 1, 1, 1], 
-	[0, 0, 1, 1, 0, 1, 1], 
-	[1, 0, 0, 0, 0, 1, 1], 
-	[1, 1, 1, 1, 0, 0, 1], 
-	[1, 1, 1, 1, 1, 0, 0]
-]))
 
 def strstr(s, x):
     for i in range(len(s) - len(x) +1):
