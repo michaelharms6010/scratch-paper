@@ -1,13 +1,30 @@
 # Edabit, Codesignal, and Hackerrank Challenges
 
 def lcm(nums):
-    max_num = max(nums)
+    if len(nums) ==1:
+        return nums[0]
+    nums.sort()
+    maxnum = nums[-1]
+    secondmaxnum = nums[-2] 
+    
     product = 1
     for i in nums:
         product *= i
-    print(product)
 
-lcm([1,2,3])
+    if maxnum - secondmaxnum == 1:
+        return int(product / 2)
+
+    for i in range(maxnum, product+1, maxnum):
+        divisible = True
+        for j in nums:
+            if i % j != 0:
+                divisible = False
+
+        if divisible:
+            return i
+
+print(lcm([91, 92, 93, 94, 95]))
+
 
 def code(string):
     output = []
