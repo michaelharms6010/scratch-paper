@@ -1,5 +1,10 @@
 # Edabit, Codesignal, and Hackerrank Challenges
 
+def lcm(nums):
+	max_num = max(nums)
+	product = reduce(lambda a,b: a * b, nums, 1)
+	for i in range(max_num, )
+
 def code(string):
     output = []
     for i in string:
@@ -9,7 +14,6 @@ def code(string):
             sumdigs += int(i)
         output.append(sumdigs)
     return output
-print(code("wonderful"))
 
 def groupAnagrams(strs):
         hash = {}
