@@ -1,15 +1,7 @@
 const assert = require("assert")
 
-let nums = [1,2,3,4,5]
-
-let num = "hey i'm a strin2g"
-
-console.log(num.match`\\d`[0]);
-console.log(+num.match`\\d`[0]);
-
-
 function codeSharer() {
-  const team = ["Simon", "Batuhan", "Vincent"]
+  const team = ["Wade", "Brett", "Vincent"]
   const choice = team[Math.floor(Math.random() * team.length)]
   return choice
 }
