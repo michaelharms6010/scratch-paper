@@ -17,10 +17,30 @@ assert.ok(["Ali", "Simon", "Mike", "Batuhan", "Brett", "Wade", "Vincent", "Sean"
 
 // edabit challenges
 
+function ulam2(n) {
+	let output = [1,2]
+	let next = 3
+	while (output.length < n) {
+    let count = 0
+		for (let i = 0; i < output.length-1; i++) {
+			for (let j = i+1; j < output.length; j++ ) {
+				if (output[i] + output[j] === next) {
+					count += 1
+				}
+			}
+		}
+		if (count === 1) {
+			output.push(next)
+		}
+		
+		next += 1
+  }
+	return output.pop()
+}
+
 function sameAscii(a, b) {
 	return a.split("").reduce((acc,val) => val.charCodeAt(0) + acc, 0) === b.split("").reduce((b,a) => a.charCodeAt(0) + b, 0)
 }
-console.log(eval("((7**2) - ((-7)**2))"))
 
 function dartsSolver(sections, darts, target) {
 	let count = 0
