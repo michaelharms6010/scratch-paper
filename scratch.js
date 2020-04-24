@@ -17,6 +17,23 @@ assert.ok(["Ali", "Simon", "Mike", "Batuhan", "Brett", "Wade", "Vincent", "Sean"
 
 // edabit challenges
 
+console.log(wordGame(["edabit", "yellow", "growing", "dart", "tangy"], ["tangy", "wedding", "ground", "toast", "yellow"]))
+
+function wordGame(p1, p2) {
+  let turns = []
+  for (let i = 0; i < Math.max(p1.length, p2.length); i++) {
+    if (p1[i]) {
+      if (turns.includes(p1[i]) || (turns[turns.length -1] && p1[i][0] !== turns[turns.length -1][turns[turns.length -1].length -1])) return "Player 2 wins!"
+      turns.push(p1[i])
+    }
+    if (p2[i]) {
+      if (turns.includes(p2[i]) || (turns[turns.length -1] && p2[i][0] !== turns[turns.length -1][turns[turns.length -1].length -1])) return "Player 1 wins!"
+      turns.push(p2[i])
+    }
+  }
+  return "Game continues..."
+}
+
 function ulam2(n) {
 	let output = [1,2]
 	let next = 3
