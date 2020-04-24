@@ -17,8 +17,6 @@ assert.ok(["Ali", "Simon", "Mike", "Batuhan", "Brett", "Wade", "Vincent", "Sean"
 
 // edabit challenges
 
-console.log(wordGame(["edabit", "yellow", "growing", "dart", "tangy"], ["tangy", "wedding", "ground", "toast", "yellow"]))
-
 function wordGame(p1, p2) {
   let turns = []
   for (let i = 0; i < Math.max(p1.length, p2.length); i++) {
