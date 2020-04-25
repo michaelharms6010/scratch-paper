@@ -6,7 +6,7 @@ function codeSharer() {
   return choice
 }
 
-console.log(codeSharer())
+// console.log(codeSharer())
 assert.deepEqual([1,2], [1,2])
 // ensures the output is a string
 assert.equal(typeof codeSharer(), "string")
@@ -16,6 +16,21 @@ assert.ok(["Ali", "Simon", "Mike", "Batuhan", "Brett", "Wade", "Vincent", "Sean"
 // uncomment the line below to randomly select a teammate
 
 // edabit challenges
+
+function stringjoin(arr) {
+	let shared;
+	let output = arr[0];
+	for (let i = 1; i < arr.length; i++) {
+    shared = 1
+		while (arr[i].slice(0, shared) === arr[i-1].slice(0-shared)) {
+			shared += 1
+		}
+		shared -= 1
+    output += arr[i].slice(shared)
+	}
+	return output
+	
+}
 
 function wordGame(p1, p2) {
   let turns = []
@@ -804,19 +819,30 @@ function largestIsland(map) {
   return Math.max(...sizes)
 }
 
+cache={1:1, 2:2, 3:6}
 function smallest(n) {
-  let divisible = true
+  if (cache[n]) return cache[n]
   
-  for (let i = n * n-1 ; i<= factorial(n) ; i+=n) {
-    divisible = true;
-    for (let j = 1; j <=n; j++) {
-      if (i % j !== 0) divisible = false
-    }
-    if (divisible) {
-      return i
+  if (!cache[n]) {
+    for (let i = smallest(n-1); i <= factorial(n); i+= smallest(n-1)) {
+      console.log(i)
+      let divisible = true
+      for (let j = 2; j<=n; j++) {
+        if (i % j !== 0) {
+          divisible = false
+        }
+        // console.log(cache)
+      }
+      if (divisible) {
+        cache[n] = i
+        return cache[n]
+      }
     }
   }
+  
 }
+
+console.log(smallest(50))
 
 function factorial(n) {
   total = 1
