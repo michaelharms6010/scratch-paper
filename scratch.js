@@ -842,8 +842,6 @@ function smallest(n) {
   
 }
 
-console.log(smallest(50))
-
 function factorial(n) {
   total = 1
   for (let i = n; i > 0; i--) {
