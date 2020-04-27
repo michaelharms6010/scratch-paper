@@ -17,6 +17,9 @@ assert.ok(["Ali", "Simon", "Mike", "Batuhan", "Brett", "Wade", "Vincent", "Sean"
 
 // edabit challenges
 
+function hasHiddenFee(prices, t) {
+	return prices.reduce((a, v) => a + Number(v.slice(1)), 0) < Number(t.slice(1))
+}
 
 function stringjoin(arr) {
 	let shared;
