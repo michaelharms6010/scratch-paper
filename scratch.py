@@ -1,5 +1,27 @@
 # Edabit, Codesignal, and Hackerrank Challenges
 
+def maxSlidingWindow(nums, k):
+    """
+    :type nums: List[int]
+    :type k: int
+    :rtype: List[int]
+    """
+    i = 0
+    output = []
+    window = []
+    while i <= len(nums)-k:
+        for j in range(k):
+            window.append(nums[i+j])
+            print(window)
+        output.append(max(window))
+        i+= 1
+        window = []
+    return output
+
+print(maxSlidingWindow([1],1))
+
+
+
 def lcm(nums):
     if len(nums) ==1:
         return nums[0]
@@ -22,9 +44,6 @@ def lcm(nums):
 
         if divisible:
             return i
-
-print(lcm([91, 92, 93, 94, 95]))
-
 
 def code(string):
     output = []
