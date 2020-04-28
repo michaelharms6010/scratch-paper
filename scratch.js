@@ -1,12 +1,12 @@
 const assert = require("assert")
 
 function codeSharer() {
-  const team = ["Wade", "Brett", "Batuhan"]
+  const team = ["Wade", "Sean", "Brett", "Batuhan"]
   const choice = team[Math.floor(Math.random() * team.length)]
   return choice
 }
 
-// console.log(codeSharer())
+console.log(codeSharer())
 assert.deepEqual([1,2], [1,2])
 // ensures the output is a string
 assert.equal(typeof codeSharer(), "string")
