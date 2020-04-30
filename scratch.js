@@ -40,13 +40,10 @@ function sudokuValidator(x) {
 								  x[i+1][j], x[i+1][j+1], x[i+1][j+2],
 								  x[i + 2][j], x[i + 2][j+1], x[i + 2][j+2]])
     }
-    console.log(boxes)
 	}
 	for (let i in boxes) {
 		if (new Set(boxes[i]).size !== 9) return false
 	}
-	
-	
 	return true
 }
 
