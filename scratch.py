@@ -18,10 +18,6 @@ def maxSlidingWindow(nums, k):
         window = []
     return output
 
-print(maxSlidingWindow([1],1))
-
-
-
 def lcm(nums):
     if len(nums) ==1:
         return nums[0]
