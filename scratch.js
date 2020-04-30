@@ -38,7 +38,7 @@ function sudokuValidator(x) {
 		for (let j = 0; j < 9; j+= 3) {
 			boxes.push([x[i][j], x[i][j+1], x[i][j+2], 
 								  x[i+1][j], x[i+1][j+1], x[i+1][j+2],
-								  x[i + 2][j], x[i + 2][j+1], x[i + 2][j+2]])
+								  x[i+2][j], x[i+2][j+1], x[i+2][j+2]])
     }
 	}
 	for (let i in boxes) {
