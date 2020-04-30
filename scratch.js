@@ -6,7 +6,7 @@ function codeSharer() {
   return choice
 }
 
-console.log(codeSharer())
+// console.log(codeSharer())
 assert.deepEqual([1,2], [1,2])
 // ensures the output is a string
 assert.equal(typeof codeSharer(), "string")
@@ -16,6 +16,50 @@ assert.ok(["Ali", "Simon", "Mike", "Batuhan", "Brett", "Wade", "Vincent", "Sean"
 // uncomment the line below to randomly select a teammate
 
 // edabit challenges
+
+function sudokuValidator(x) {
+	// check horizontal
+	for (let i in x) {
+		if (new Set(x[i]).size !== 9) return false
+	}
+	// check vertical
+  const cols = [ [], [], [], [], [], [], [], [], [] ]
+	for (let j = 0; j < 9; j++) {
+		for (let i in x) { 
+      cols[j].push(x[i][j])
+    }
+	}
+	for (let i in cols) {
+		if (new Set(cols[i]).size !== 9) return false
+	}
+  //check boxes
+  const boxes = []
+	for (let i = 0; i < 9; i += 3) {
+		for (let j = 0; j < 9; j+= 3) {
+			boxes.push([x[i][j], x[i][j+1], x[i][j+2], 
+								  x[i+1][j], x[i+1][j+1], x[i+1][j+2],
+								  x[i + 2][j], x[i + 2][j+1], x[i + 2][j+2]])
+    }
+    console.log(boxes)
+	}
+	for (let i in boxes) {
+		if (new Set(boxes[i]).size !== 9) return false
+	}
+	
+	
+	return true
+}
+
+console.log(sudokuValidator(
+  [ [ 1, 5, 2, 4, 8, 9, 3, 7, 6 ],
+    [ 7, 3, 9, 2, 5, 6, 8, 4, 1 ],
+    [ 4, 6, 5, 3, 7, 1, 2, 9, 8 ],
+    [ 3, 8, 7, 1, 2, 4, 6, 5, 9 ],
+    [ 8, 9, 1, 7, 6, 3, 4, 2, 5 ],
+    [ 2, 4, 6, 5, 9, 8, 7, 1, 3 ],
+    [ 9, 1, 4, 6, 3, 7, 5, 8, 2 ],
+    [ 6, 2, 8, 9, 4, 5, 1, 3, 7 ],
+    [ 5, 7, 3, 8, 1, 2, 9, 6, 4 ] ]))
 
 function hasHiddenFee(prices, t) {
 	return prices.reduce((a, v) => a + Number(v.slice(1)), 0) < Number(t.slice(1))
