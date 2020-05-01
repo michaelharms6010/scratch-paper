@@ -22,7 +22,7 @@ function sudokuValidator(x) {
 	for (let i in x) {
 		if (new Set(x[i]).size !== 9) return false
 	}
-	// check vertical
+  // check vertical
   const cols = [ [], [], [], [], [], [], [], [], [] ]
 	for (let j = 0; j < 9; j++) {
 		for (let i in x) { 
@@ -46,17 +46,6 @@ function sudokuValidator(x) {
 	}
 	return true
 }
-
-console.log(sudokuValidator(
-  [ [ 1, 5, 2, 4, 8, 9, 3, 7, 6 ],
-    [ 7, 3, 9, 2, 5, 6, 8, 4, 1 ],
-    [ 4, 6, 5, 3, 7, 1, 2, 9, 8 ],
-    [ 3, 8, 7, 1, 2, 4, 6, 5, 9 ],
-    [ 8, 9, 1, 7, 6, 3, 4, 2, 5 ],
-    [ 2, 4, 6, 5, 9, 8, 7, 1, 3 ],
-    [ 9, 1, 4, 6, 3, 7, 5, 8, 2 ],
-    [ 6, 2, 8, 9, 4, 5, 1, 3, 7 ],
-    [ 5, 7, 3, 8, 1, 2, 9, 6, 4 ] ]))
 
 function hasHiddenFee(prices, t) {
 	return prices.reduce((a, v) => a + Number(v.slice(1)), 0) < Number(t.slice(1))
