@@ -17,6 +17,15 @@ assert.ok(["Ali", "Simon", "Mike", "Batuhan", "Brett", "Wade", "Vincent", "Sean"
 
 // edabit challenges
 
+function numReducer(n) {
+  n = Number(`${n}`.split(/[-]/).join(""))
+  while (`${n}`.length > 1) {
+    n = [...`${n}`].reduce((acc, cur) => acc + Number(cur), 0)
+  }
+  return Number(n)
+}
+console.log(numReducer("12-3-13"))
+
 function sudokuValidator(x) {
 	// check horizontal
 	for (let i in x) {
