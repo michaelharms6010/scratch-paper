@@ -24,7 +24,6 @@ function numReducer(n) {
   }
   return Number(n)
 }
-console.log(numReducer("12-3-13"))
 
 function sudokuValidator(x) {
 	// check horizontal
