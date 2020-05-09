@@ -17,6 +17,24 @@ assert.ok(["Ali", "Simon", "Mike", "Batuhan", "Brett", "Wade", "Vincent", "Sean"
 
 // edabit challenges
 
+function symbolReplacer(num, symbol) {
+  let output = "";
+  while (num > 0) {
+    output += symbol.repeat(2);
+    num -= 10
+  }
+  return output
+}
+
+function columnChart(productA, productB, targets) {
+  targets = targets.map(item => item + 10);
+  const output = [Array(7).fill("  "), Array(7).fill("  "), Array(7).fill("  "), Array(7).fill("  "), Array(7).fill("  "), Array(7).fill("  "), "| Mo Tu We Th Fr Sa Su |"]
+  productA = productA.map(item => symbolReplacer(item, "+"))
+  productB = productB.map(item => symbolReplacer(item, "*"))
+  for (let i = 0; i < output.length -1; i++)
+}
+columnChart([30, 20, 10, 30, 10, 20, 10], [20, 10, 10, 10, 20, 0, 10], [50, 40, 20, 40, 30, 30, 40])
+
 function numReducer(n) {
   n = Number(`${n}`.split(/[-]/).join(""))
   while (`${n}`.length > 1) {
