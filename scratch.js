@@ -25,13 +25,18 @@ function symbolReplacer(num, symbol) {
   }
   return output
 }
-
+ 
 function columnChart(productA, productB, targets) {
   targets = targets.map(item => item + 10);
-  const output = [Array(7).fill("  "), Array(7).fill("  "), Array(7).fill("  "), Array(7).fill("  "), Array(7).fill("  "), Array(7).fill("  "), "| Mo Tu We Th Fr Sa Su |"]
-  productA = productA.map(item => symbolReplacer(item, "+"))
-  productB = productB.map(item => symbolReplacer(item, "*"))
+  const dateString = "| Mo Tu We Th Fr Sa Su |"
+  const output = [Array(7).fill("  "),Array(7).fill("  "),Array(7).fill("  "),Array(7).fill("  "),Array(7).fill("  "),Array(7).fill("  ")]
 
+  for (let i = 0; i < output.length; i++) {
+    let cursor = 0;
+    for (let j = productA[i]; j > 0; j-=10) {
+      output[cursor][i] = "++"
+    }
+  }
 }
 columnChart([30, 20, 10, 30, 10, 20, 10], [20, 10, 10, 10, 20, 0, 10], [50, 40, 20, 40, 30, 30, 40])
 
