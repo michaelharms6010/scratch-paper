@@ -16,14 +16,22 @@ assert.ok(["Ali", "Simon", "Mike", "Batuhan", "Brett", "Wade", "Vincent", "Sean"
 // uncomment the line below to randomly select a teammate
 
 // edabit challenges
+function delay(t, v) {
+  return new Promise(function(resolve) { 
+      setTimeout(resolve.bind(null, v), t)
+  });
+}
 
 function rand36() {
   return Math.floor(Math.random() * 37)
 }
 
 async function spinner() {
-    await setTimeout( _ => console.log(rand36()), 1000) 
-    await setTimeout( _ => console.log(rand36()), 1000) 
+  for (let i = 0; i < 1000; i+=30) {
+    Promise.resolve("Hello").then(r => 
+    delay(i).then(_ => console.log(rand36())))
+  }
+
 }
 spinner()
 
