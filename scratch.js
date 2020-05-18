@@ -17,6 +17,17 @@ assert.ok(["Ali", "Simon", "Mike", "Batuhan", "Brett", "Wade", "Vincent", "Sean"
 
 // edabit challenges
 
+function rand36() {
+  return Math.floor(Math.random() * 37)
+}
+
+async function spinner() {
+    await setTimeout( _ => console.log(rand36()), 1000) 
+    await setTimeout( _ => console.log(rand36()), 1000) 
+}
+spinner()
+
+
 function symbolReplacer(num, symbol) {
   let output = "";
   while (num > 0) {
