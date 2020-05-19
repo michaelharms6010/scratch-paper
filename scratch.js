@@ -33,7 +33,6 @@ async function spinner() {
   }
 
 }
-spinner()
 
 
 function symbolReplacer(num, symbol) {
