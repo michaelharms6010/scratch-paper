@@ -1,26 +1,37 @@
 const assert = require("assert")
 
-function codeSharer() {
-  const team = ["Brett", "Wade", "Batuhan", "Simon"]
-  const choice = team[Math.floor(Math.random() * team.length)]
-  return choice
-}
-
-// console.log(codeSharer())
-assert.deepEqual([1,2], [1,2])
-// ensures the output is a string
-assert.equal(typeof codeSharer(), "string")
-// ensures the output is one of our team members
-assert.ok(["Ali", "Simon", "Mike", "Batuhan", "Brett", "Wade", "Vincent", "Sean"].includes(codeSharer()))
-
 // uncomment the line below to randomly select a teammate
 
-// edabit challenges
-function delay(t, v) {
-  return new Promise(function(resolve) { 
-      setTimeout(resolve.bind(null, v), t)
-  });
+
+function hasIdentical(arr) {
+  cols = []
+  for (let i in arr) {
+    cols[i] = []
+    for (let j in arr[i]) {
+      cols[i].push(arr[j][i])
+    }
+    if (arrayIncludes(cols[i], arr)) {
+      return true
+    }
+  }
+  return false
 }
+
+function arrayIncludes(sub, arr) {
+  for (let i in arr) {
+    if (arrayEquals(arr[i], sub)) return true
+  }
+  return false
+}
+
+
+console.log(hasIdentical([
+  [1, 2, 3, 4],
+  [2, 4, 9, 8],
+  [5, 9, 7, 7],
+  [6, 8, 1, 0]
+]))
+
 
 function rand36() {
   return Math.floor(Math.random() * 37)
