@@ -8,4 +8,7 @@ def boomerang(arr)
     return count
 end
 
-print boomerang([1,2,1,2,3])
+def numArgs(*args, **kwargs, &blk)
+    args.size + kwargs.size + (blk.nil? ? 0: 1)
+end
+print numArgs(foo: 1, bar: 2) {}
