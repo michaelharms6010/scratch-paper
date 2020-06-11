@@ -33,8 +33,8 @@ end
 
 def xmas_items(n)
 	total = 0
-	for i in (0..n) do
-		total += i
+    for i in (0..n) do
+        total += i * (n-i)
 	end
 	total
 end
