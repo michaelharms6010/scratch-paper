@@ -12,6 +12,8 @@ def spincounter(s):
             hash[i] = 1
     return hash
 
+print(spincounter(spins))
+
 def maxSlidingWindow(nums, k):
     """
     :type nums: List[int]
