@@ -29,12 +29,3 @@ def bracket_logic(xp)
     end
     stack.length == 0
 end
-
-
-def xmas_items(n)
-	total = 0
-    for i in (0..n) do
-        total += i * (n-i)
-	end
-	total
-end
