@@ -101,5 +101,10 @@ def is_rectangle(coordinates)
 	true	
 end
 
-puts is_rectangle(["(-4, 3)", "(4, 3)", "(4, -3)", "(-4,-3)"])
+require "date"
 
+def get_day(str)
+    Date.parse(str).strftime("%A")
+end
+
+puts get_day('12/08/11')
