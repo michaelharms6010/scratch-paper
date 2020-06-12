@@ -86,5 +86,20 @@ def bemirp(n)
     
 end
 
-puts bemirp(10909)
+def is_rectangle(coordinates)
+    
+	return false if coordinates.length != 4
+    coordinates = coordinates.map{|x| x.tr("() ", "").split(",")}
+    for i in (0..coordinates.length-1) do
+        puts coordinates[i][1]
+        puts coordinates[(i+1)%4][1]
+		return false if coordinates[i][0] != coordinates[(i+1)%4][0] and coordinates[i][1] != coordinates[(i+1)%4][1]
+        puts "passed 1"
+        return false if coordinates[i][0] == coordinates[(i+1)%4][0] and coordinates[i][1] == coordinates[(i+1)%4][1]
+        puts "passed 2"
+    end
+	true	
+end
+
+puts is_rectangle(["(-4, 3)", "(4, 3)", "(4, -3)", "(-4,-3)"])
 
