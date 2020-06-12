@@ -78,11 +78,12 @@ isPalindrome(15551)
 def bemirp(n)
     reverse = isPrime(n.to_s.reverse.to_i)
     flipped = flipVert(n.to_s.reverse.to_i)
+    return "C" if not isPrime(n)
     return "P" if isPrime(n) and isPalindrome(n)
     return "B" if reverse and flipped
     return "E" if reverse
     return "P" if isPrime(n)
-    "C"
+    
 end
 
 puts bemirp(10091)
