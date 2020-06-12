@@ -150,3 +150,27 @@ def repetition(txt, n)
 	return txt if n == 1
 	txt + repetition(txt, n-1)
 end
+
+def fret_freq(g_str, fret)
+	freqs = {
+		"1" => 329.63,
+		"2" => 246.94,
+		"3" => 196.00,
+		"4" => 146.83,
+		"5" => 110.00,
+		"6" => 82.41
+	}
+	# String Frequency * 2**(fret/12)
+	(freqs[g_str.to_s] * (2 ** (fret / 12.to_f))).round(2)
+end
+
+def total_points(guesses, word)
+	score = 0
+		guesses.each do |i|
+			if i.chars.all?{|c| i.count(c) <= word.count(c)}
+				score += i.length - 2
+				score += 50 if i.length == 6;
+			end
+		end
+		score
+end
