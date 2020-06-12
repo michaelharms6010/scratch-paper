@@ -107,4 +107,10 @@ def get_day(str)
     Date.parse(str).strftime("%A")
 end
 
-puts get_day('12/08/11')
+def free_throws(success, rows)
+	"#{(((success.tr("%","").to_f / 100) ** rows) * 100).round}%"
+end
+
+def digits(number)
+	(1..number-1).to_a.join("").length
+end
