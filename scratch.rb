@@ -29,3 +29,26 @@ def bracket_logic(xp)
     end
     stack.length == 0
 end
+
+print ("5" * 2)
+
+def we_have_house(hh, hw, hd, rh)
+	width_limit = 15
+    depth_limit = 11
+    return "House too big." if hw > 44 or hd > 44
+    return "House too small." if hw < width_limit or hd < depth_limit
+	return "No permission." if hh + rh > 20
+	windows = 12 * 8
+	door = 21
+	used_area = windows + door
+	total_area = (hd * hh * 2) + (hw * hh * 2) + (hw * rh)
+	free_area = total_area - used_area
+	grey = (hw * 2 + hd * 2) * 2 - (3*2)
+	yellow = free_area - grey
+	"Yellow: #{yellow}, Gray: #{grey}"
+end
+
+puts (8 * 30 * 32)
+
+print we_have_house(8, 30, 32, 8)
+
