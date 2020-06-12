@@ -30,7 +30,6 @@ def bracket_logic(xp)
     stack.length == 0
 end
 
-print ("5" * 2)
 
 def we_have_house(hh, hw, hd, rh)
 	width_limit = 15
@@ -48,7 +47,43 @@ def we_have_house(hh, hw, hd, rh)
 	"Yellow: #{yellow}, Gray: #{grey}"
 end
 
-puts (8 * 30 * 32)
+def isPrime(n)
+	return false if n <= 1
+	return true if n == 2 or n == 3
+	for i in (2..(n ** 0.5).round + 1) do
+		return false if n % i == 0
+	end
+	true
+end
 
-print we_have_house(8, 30, 32, 8)
+def flipVert(n)
+    hash = {
+        "1" => 1,
+        "8" => 8,
+        "6" => 9,
+        "9" => 6,
+        "0" => 0
+    }
+    return false if not n.to_s.chars.all? {|c| hash[c]}
+    isPrime(n.to_s.chars.map{|c| hash[c]}.join("").to_i)
+end
+
+def isPalindrome(n)
+    n.to_s == n.to_s.reverse
+end
+
+isPalindrome(15551)
+
+
+def bemirp(n)
+    reverse = isPrime(n.to_s.reverse.to_i)
+    flipped = flipVert(n.to_s.reverse.to_i)
+    return "P" if isPrime(n) and isPalindrome(n)
+    return "B" if reverse and flipped
+    return "E" if reverse
+    return "P" if isPrime(n)
+    "C"
+end
+
+puts bemirp(10091)
 
