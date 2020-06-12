@@ -114,3 +114,39 @@ end
 def digits(number)
 	(1..number-1).to_a.join("").length
 end
+
+def get_vowel_substrings(str)
+    output = []
+    vowels = /[aeiou]/i
+    for i in (0..str.length-1) do
+        for j in (1..str.length-i) do
+            output.push(str[i,j]) if vowels === str[i,j][0] and vowels === str[i,j][-1]
+        end
+    end
+    output.uniq.sort
+end
+
+def get_consonant_substrings(str)
+    output = []
+    consonants = /[bcdfghjklmnpqrstvwxyz]/i
+    for i in (0..str.length-1) do
+        for j in (1..str.length-i) do
+            output.push(str[i,j]) if consonants === str[i,j][0] and consonants === str[i,j][-1]
+        end
+    end
+    output.uniq.sort
+end
+
+def larger_than_right(arr)
+	output = []
+	for i in (0..arr.length-2) do
+		if arr[i] > arr[i+1,arr.length-i-1].max
+			output << arr[i]
+		end
+    end
+    output << arr[-1]
+end
+def repetition(txt, n)
+	return txt if n == 1
+	txt + repetition(txt, n-1)
+end
