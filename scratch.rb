@@ -240,4 +240,55 @@ def convert_time(str)
     "#{hour}:#{minute}:#{second}"
 end
 
-puts convert_time("12:05:45PM")
+def switch(prison)
+	prison.map{|x| (x==0) ? 1 : 0}
+end
+
+def freed_prisoners(prison)
+	return 
+	count = 0
+	for i in (0..prison.length-1) do
+		if prison[i] == 1
+			prison = switch(prison)
+			count += 1 
+		end
+	end
+	count
+end
+
+def largest_island(map)
+	sizes = []
+	for row1 in 0..map.length-1 do
+		for col1 in 0..map[0].length-1 do
+			if map[row1][col1] == 1
+				stack = []
+				size = 0
+				stack.push([row1, col1])
+				while stack.length > 0 do
+					row,col = stack.pop()
+					if map[row][col] == 1
+						map[row][col] = 0
+						size += 1
+					end				
+					for i in row-1..row +1 do
+						for j in col-1..col+1 do
+							if map[i] and map[i][j] == 1 and i >= 0 and j >= 0
+								stack.push([i,j]) 
+								puts "match" + [i,j].to_s
+							end
+						end
+					end
+				end
+				sizes.push(size)
+			end
+			
+		end
+	end
+	sizes.max
+end
+
+puts largest_island([
+	[1, 1, 0],
+	[0, 1, 1],
+	[0, 0, 1]
+  ])
