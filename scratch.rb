@@ -174,3 +174,28 @@ def total_points(guesses, word)
 		end
 		score
 end
+
+def can_exit(arr)
+	stack = []
+	stack.push([0,0])
+	while not stack.length.zero? do
+		row,col = stack.pop()
+        return true if [row,col] == [4,6]
+        puts [row,col].to_s
+        
+		arr[row][col] = 1
+		stack.push([row-1, col]) if row > 0 and arr[row-1][col] == 0
+		stack.push([row+1, col]) if row < arr.length-1 and arr[row+1][col] == 0
+		stack.push([row, col+1]) if col < arr[0].length-1 and arr[row][col+1] == 0
+		stack.push([row, col-1]) if col > 0 and arr[row][col-1] == 0
+	end
+	false
+end
+
+puts can_exit([
+	[0, 1, 1, 1, 1, 1, 1], 
+	[0, 0, 1, 1, 0, 1, 1], 
+	[1, 0, 0, 0, 0, 1, 1], 
+	[1, 1, 1, 1, 0, 0, 1], 
+	[1, 1, 1, 1, 1, 0, 0]
+])
