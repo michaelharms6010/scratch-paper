@@ -192,10 +192,52 @@ def can_exit(arr)
 	false
 end
 
-puts can_exit([
-	[0, 1, 1, 1, 1, 1, 1], 
-	[0, 0, 1, 1, 0, 1, 1], 
-	[1, 0, 0, 0, 0, 1, 1], 
-	[1, 1, 1, 1, 0, 0, 1], 
-	[1, 1, 1, 1, 1, 0, 0]
-])
+def can_enter_cave(arr)
+
+    stack = []
+    startrow, startcol = [0,0]
+    while arr[startrow][startcol] != 0
+        startrow += 1
+        return false if startrow > arr.length-1
+    end
+	stack.push([startrow, startcol])
+	while not stack.length.zero? do
+		row,col = stack.pop()
+        return true if col == arr[0].length-1 
+        
+		arr[row][col] = 1
+		stack.push([row-1, col]) if row > 0 and arr[row-1][col] == 0
+		stack.push([row+1, col]) if row < arr.length-1 and arr[row+1][col] == 0
+		stack.push([row, col+1]) if col < arr[0].length-1 and arr[row][col+1] == 0
+		stack.push([row, col-1]) if col > 0 and arr[row][col-1] == 0
+	end
+	false
+
+end
+
+def cutting_grass(arr, *cuts)
+	output = []
+    cuts.each do |cut|
+        if arr.include?(0)
+            output.push("Done")
+        else
+		    arr = arr.map{|x| x-cut}
+            output.push(arr)
+        end
+	end
+	output.to_s
+end
+
+def convert_time(str)
+	pm = str.include?("P")
+    hour, minute, second = str.split(/[:APM]/)
+    if pm and hour != "12"
+        hour = (hour.to_i + 12).to_s
+    end
+    if hour == "12" and not pm
+        hour = "00"
+    end
+    "#{hour}:#{minute}:#{second}"
+end
+
+puts convert_time("12:05:45PM")
