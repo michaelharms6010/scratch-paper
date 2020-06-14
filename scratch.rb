@@ -284,8 +284,3 @@ def largest_island(map)
 	sizes.max
 end
 
-puts largest_island([
-	[1, 1, 0],
-	[0, 1, 1],
-	[0, 0, 1]
-  ])
