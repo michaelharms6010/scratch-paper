@@ -72,9 +72,6 @@ def isPalindrome(n)
     n.to_s == n.to_s.reverse
 end
 
-isPalindrome(15551)
-
-
 def bemirp(n)
     reverse = isPrime(n.to_s.reverse.to_i)
     flipped = flipVert(n.to_s)
