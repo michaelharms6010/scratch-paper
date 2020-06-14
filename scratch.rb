@@ -284,3 +284,15 @@ def largest_island(map)
 	sizes.max
 end
 
+def tree(h)
+	out = []
+	spaces = 0
+	for i in (0..h-1) do
+		puts (h - i)
+		out.push((" " * spaces) + ("#" * ((h - i) + spaces * 2)) + (" " * spaces))
+		spaces += 1 
+	end
+	out
+end
+
+print tree(5)
