@@ -324,25 +324,27 @@ def transform_matrix(arr)
 	output
 end
 
-def ones_infection(arr)
-	output = []
-	for row in (0..arr.length-1) do
-		output.push([])
-	end
-	
-		columnhas = arr.map{|x| x[col]}.include(1)
-		rowct = arr[row].count(1)
-		
 
-		colct -= 2 if arr[row][col] == 1
-		output[row][col] = rowct + colct
-
+def no_strangers(str)
+	hash = {}
+	acqs = []
+	friends = []
+	str.split.map{|x| x.downcase.gsub(/[^a-z0-9\s']/i, '')}.each do |word|
+		if not hash[word]
+			hash[word] = 1
+		elsif hash[word] == 4
+			acqs.delete(word)
+			friends.push(word)
+			hash[word] += 1
+		elsif hash[word] == 2
+			acqs.push(word)
+			hash[word] += 1
+		else
+			hash[word] += 1
+		end
 	end
+	[acqs, friends]
 end
 
-puts transform_matrix([
-[1, 0, 0, 0, 1], 
-[0, 1, 0, 0, 0], 
-[0, 0, 0, 1, 0], 
-[0, 1, 0, 1, 0], 
-[0, 1, 0, 0, 0]]).to_s
+
+puts "1".ord
