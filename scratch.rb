@@ -289,10 +289,60 @@ def tree(h)
 	spaces = 0
 	for i in (0..h-1) do
 		puts (h - i)
-		out.push((" " * spaces) + ("#" * ((h - i) + spaces * 2)) + (" " * spaces))
+		out.push((" " * spaces) + ("#" * ((h - i) * 2 - 1)) + (" " * spaces))
 		spaces += 1 
 	end
-	out
+	out.reverse
 end
 
-print tree(5)
+def vol_sphere(r)
+	4/3.to_f * 3.14159265 * (r ** 3)
+end
+
+def vol_shell(r1, r2)
+	inside, outside = [r1,r2].sort
+	vol_sphere(outside) - vol_sphere(inside)
+end
+
+def transform_matrix(arr)
+	output = []
+	for row in (0..arr.length-1) do
+		output.push([])
+		for col in (0..arr[row].length-1) do
+			puts "value"
+			puts arr[row][col]
+			rowct = arr[row].count(1)
+			colct = arr.map{|x| x[col]}.count(1)
+			puts arr[row].to_s
+			puts arr.map{|x| x[col]}.to_s
+			puts rowct
+			puts colct
+			colct -= 2 if arr[row][col] == 1
+			output[row][col] = rowct + colct
+		end
+	end
+	output
+end
+
+def ones_infection(arr)
+	output = []
+	for row in (0..arr.length-1) do
+		output.push([])
+	end
+	
+		columnhas = arr.map{|x| x[col]}.include(1)
+		rowct = arr[row].count(1)
+		
+
+		colct -= 2 if arr[row][col] == 1
+		output[row][col] = rowct + colct
+
+	end
+end
+
+puts transform_matrix([
+[1, 0, 0, 0, 1], 
+[0, 1, 0, 0, 0], 
+[0, 0, 0, 1, 0], 
+[0, 1, 0, 1, 0], 
+[0, 1, 0, 0, 0]]).to_s
