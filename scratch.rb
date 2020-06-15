@@ -347,4 +347,8 @@ def no_strangers(str)
 end
 
 
-puts "1".ord
+hash1 = {
+	hi: "hello",
+	there: "you mook",
+}
+puts hash1[:there]
