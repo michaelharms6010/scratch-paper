@@ -394,4 +394,39 @@ def three_sum(arr)
 	out.sort_by{|x| x[0]}
 end
 
-puts three_sum([-1,0,1,2,-2]).to_s
+def tap_code(str)
+	str = str.upcase
+	grid = [["A","B","C/K","D","E"], 
+			["F","G","H","I","J"], 
+			["L","M","N","O","P"],
+			["Q","R","S","T","U"],
+			["V","W","X","Y","Z"]]
+	out = ""
+	if str.include?(".")
+		dots = str.split(" ")
+		letters = []
+		for i in (0..dots.length-1).step(2) do
+			letters += [dots[i,2]]
+		end
+		letters.each do |pair|
+			out += grid[pair[0].count(".")-1][pair[1].count(".")-1].tr("/K", "")
+		end
+
+	else
+		out = []
+		str.chars.each do |char|
+			for i in (0..grid.length-1) do
+				if ((/[ck]/i) === char and i == 0)
+					out.push(".", "...")
+				elsif grid[i].include?(char)
+					out.push("." * (i+1))
+					out.push("." * (grid[i].index(char)+1))
+				end
+			end
+		end
+		out = out.join(" ")
+	end
+	out.downcase
+end
+
+puts tap_code("confrontation")
