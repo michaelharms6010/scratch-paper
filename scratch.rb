@@ -346,9 +346,12 @@ def no_strangers(str)
 	[acqs, friends]
 end
 
+def check_square_and_cube(lst)
+	sqr, cube = lst
+	puts sqr ** 0.5
+	puts cube ** (1.0/3)
+	(sqr ** 0.5).round == (cube ** (1.0/3)).round
+end
 
-hash1 = {
-	hi: "hello",
-	there: "you mook",
-}
-puts hash1[:there]
+lv = /^[a-zA-Z]$/
+lv === "Bold"
