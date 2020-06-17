@@ -353,5 +353,45 @@ def check_square_and_cube(lst)
 	(sqr ** 0.5).round == (cube ** (1.0/3)).round
 end
 
-lv = /^[a-zA-Z]$/
-lv === "Bold"
+def letter_check(arr)
+	puts arr[0].downcase.chars.sort.join
+	puts (arr[1].downcase.chars.sort.join)
+end
+
+def moving_partition(arr)
+	return [] if arr == []
+	front = []
+	back = arr
+	out = []
+	for i in (0..arr.length-2) do
+		front.push(back.shift())
+		puts back.to_s
+		out.push([front[0..front.length], back[0..back.length]])
+	end
+	out
+end
+
+def three_sum(arr)
+	return [] if arr.length < 3
+	out = []
+	arr = arr.sort
+	for i in (0..arr.length-3) do
+		c1 = i
+		c2 = i + 1
+		c3 = arr.length - 1
+			while c3 > c2 do
+				if arr[c1] + arr[c2] + arr[c3] == 0
+					match = [arr[c1],arr[c2],arr[c3]]
+					out.push(match) if not out.include?(match)
+					c2 += 1
+				elsif arr[c1] + arr[c2] + arr[c3] > 0
+					c3 -= 1
+				else 
+					c2 += 1
+				end
+			end
+	end
+	out.sort_by{|x| x[0]}
+end
+
+puts three_sum([-1,0,1,2,-2]).to_s
