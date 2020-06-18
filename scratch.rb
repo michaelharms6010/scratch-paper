@@ -428,5 +428,3 @@ def tap_code(str)
 	end
 	out.downcase
 end
-
-puts tap_code("confrontation")
