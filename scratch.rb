@@ -436,3 +436,13 @@ h2 = { likes: 2, dislikes: 3, followers: 10}
 def hash_to_array(hash)
 	return *hash
 end
+
+def random_burner_taddr()
+	head = "t1"
+	middle = "burnvotertaddrxdlmaoepic"
+	tail = [*("a"),*('c'..'h'),*("j".."n"),*("p".."z"),*('0'),*("2".."9")].shuffle[0,9].join
+
+	(head + middle + tail)
+end
+
+puts random_burner_taddr
