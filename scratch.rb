@@ -428,3 +428,11 @@ def tap_code(str)
 	end
 	out.downcase
 end
+
+
+h1 = { D: 1, B: 2, C: 3}
+h2 = { likes: 2, dislikes: 3, followers: 10}
+
+def hash_to_array(hash)
+	return *hash
+end
