@@ -441,8 +441,21 @@ def random_burner_taddr()
 	head = "t1"
 	middle = "burnvotertaddrxdlmaoepic"
 	tail = [*("a"),*('c'..'h'),*("j".."n"),*("p".."z"),*('0'),*("2".."9")].shuffle[0,9].join
-
+	
 	(head + middle + tail)
 end
 
-puts random_burner_taddr
+def caesar_cipher(s, k)
+	arr = s.chars.map do |char|
+		if not (/[a-z]/i) === char
+			char
+		elsif char == char.downcase
+			(((char.ord - 97 + k) % 26) + 97).chr
+		else
+			(((char.ord - 65 + k) % 26) + 65).chr
+		end
+	end
+	arr.join
+end
+
+puts caesar_cipher("Hello-world", 5)
