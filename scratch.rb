@@ -458,4 +458,11 @@ def caesar_cipher(s, k)
 	arr.join
 end
 
-puts caesar_cipher("Hello-world", 5)
+def set_interval(delay)
+	Thread.new do
+		loop do
+		sleep delay
+		yield # call passed block
+		end
+	end
+end
