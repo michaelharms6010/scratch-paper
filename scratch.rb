@@ -440,10 +440,12 @@ end
 def random_burner_taddr()
 	head = "t1"
 	middle = "burnvotertaddrxdlmaoepic"
-	tail = [*("a"),*('c'..'h'),*("j".."n"),*("p".."z"),*('0'),*("2".."9")].shuffle[0,9].join
+	tail = [*("A"),*('C'..'H'),*("J".."N"),*("P".."Z"), *("a"),*('c'..'h'),*("j".."n"),*("p".."z"),*('0'),*("2".."9")].shuffle[0,9].join
 	
 	(head + middle + tail)
 end
+
+puts random_burner_taddr()
 
 def caesar_cipher(s, k)
 	arr = s.chars.map do |char|
