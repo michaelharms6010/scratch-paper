@@ -445,8 +445,6 @@ def random_burner_taddr()
 	(head + middle + tail)
 end
 
-puts random_burner_taddr()
-
 def caesar_cipher(s, k)
 	arr = s.chars.map do |char|
 		if not (/[a-z]/i) === char
@@ -468,3 +466,26 @@ def set_interval(delay)
 		end
 	end
 end
+
+
+def sum_of_slices(arr)
+	s = 0
+	e = 0
+	out = []
+	while e < arr.length-1 do
+		while arr[s..e].reduce(0){|sum, x| x + sum} <= 100 and e < arr.length-1 do
+			e += 1
+		end
+		out.push(arr[s..e-1].reduce(0){|sum, x| x + sum})
+		s = e
+		e += 1
+	end
+	if out[-1] and out[-1] + arr[-1] <= 100
+		out[-1] += arr[-1] 
+	else
+		out.push(arr[-1])
+	end
+	out
+end
+
+puts sum_of_slices([62,	406,	343,	234,	244,	200,	304,	462,	212,	48,	166,	71,	80,	51,	307,	442,	368,	235,	199,	411,	100,	203,	330,	437,	226,	365,	337,	464,	14,	350]).to_s
