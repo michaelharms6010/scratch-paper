@@ -488,4 +488,39 @@ def sum_of_slices(arr)
 	out
 end
 
-puts sum_of_slices([62,	406,	343,	234,	244,	200,	304,	462,	212,	48,	166,	71,	80,	51,	307,	442,	368,	235,	199,	411,	100,	203,	330,	437,	226,	365,	337,	464,	14,	350]).to_s
+def track_robot(instructions)
+	pos = [0,0]
+	
+	instructions.each do |i|
+		i = i.split
+		i[1] = i[1].to_i
+		if i[0] == "left"
+			pos[0] -= i[1]
+		elsif i[0] == "right"
+			pos[0] += i[1]
+		elsif i[0] == "up"
+			pos[1] += i[1]
+		elsif i[0] == "down"
+			pos[1] -= i[1]
+		end
+	end
+	pos
+end
+
+def changed_one(str1, str2)
+	return false if str1.length != str2.length
+	for i in (0..str1.length-1)
+		return true if str1[0,i] + str1[i+1,str1.length-1] === str2[0,i] + str1[i+1,str1.length-1]
+	end
+	false
+end
+
+def added_or_removed_one(str1, str2)
+	return false if str1.length+1 != str2.length and str1.length-1 != str2.length
+	return true if str1.include?(str2) or str2.include?(str1)
+	false
+end
+
+def split(str)
+	
+end
