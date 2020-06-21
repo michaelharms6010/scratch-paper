@@ -577,4 +577,11 @@ def is_slidey(n)
 	true
 end
 
-puts is_slidey(123454321)
+def can_build(arr)
+	for i in 0..arr.length-2 do
+		return false if arr[i] != arr[i+1][0,arr[i+1].length-1] and arr[i] != arr[i+1][1,arr[i+1].length-1]
+	end
+	true
+end
+
+puts can_build(['a', 'at', 'ate', 'late', 'plate', 'plates'])
