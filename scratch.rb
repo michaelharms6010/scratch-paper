@@ -446,8 +446,6 @@ def random_burner_taddr()
 	(head + middle + tail)
 end
 
-puts random_burner_taddr()
-
 def caesar_cipher(s, k)
 	arr = s.chars.map do |char|
 		if not (/[a-z]/i) === char
@@ -546,9 +544,6 @@ end
 
 
 
-puts is_word_chain(["meek", "meet", "meat", "teal"])
-puts valid_pair("meat","teal")
-
 
 def split(str)
 	stack = []
@@ -574,10 +569,12 @@ def widen_streets(arr, n)
 	arr.map{|x| x.gsub("   ", " @ ").split.join(" " * n).tr("@", " ")}
 end
 
-puts widen_streets([
-	"###   ## #",
-	"### # ## #",
-	"### # ## #",
-	"### # ## #",
-	"### # ## #"
-], 3).to_s
+def is_slidey(n)
+	n = n.to_s.chars.map{|x| x.to_i}
+	for i in (0..n.length-2) do
+		return false if (n[i] - n[i+1]).abs != 1
+	end
+	true
+end
+
+puts is_slidey(123454321)
