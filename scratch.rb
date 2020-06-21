@@ -440,10 +440,13 @@ end
 def random_burner_taddr()
 	head = "t1"
 	middle = "burnvotertaddrxdlmaoepic"
-	tail = [*("A"),*('C'..'H'),*("J".."N"),*("P".."Z"), *("a"),*('c'..'h'),*("j".."n"),*("p".."z"),*('0'),*("2".."9")].shuffle[0,9].join
-	
+	invalids = ["B", "b", "I", "i", "O", "o", "1"]
+	# tail = [*("A"),*('C'..'H'),*("J".."N"),*("P".."Z"), *("a"),*('c'..'h'),*("j".."n"),*("p".."z"),*('0'),*("2".."9")]
+	tail = [*("A".."Z"),*("a".."z"),*("0".."9")].select{|x| not invalids.include?(x)}.shuffle[0,9].join
 	(head + middle + tail)
 end
+
+puts random_burner_taddr()
 
 def caesar_cipher(s, k)
 	arr = s.chars.map do |char|
@@ -507,22 +510,12 @@ def track_robot(instructions)
 	pos
 end
 
-def is_word_chain(arr)
-	for i in (0..arr.length-2) do
-		if 
-	end
-end
-
-def valid_chain(str1, str2)
-	return false if changed_one(str1, str2) and added_or_removed_one(str1,str2)
-	return true if changed_one(str1, str2) or added_or_removed_one(str1,str2)
-	false
-end
 
 def changed_one(str1, str2)
 	return false if str1.length != str2.length
+	return false if str1 == str2
 	for i in (0..str1.length-1) do
-		return true if str1[0,i] + str1[i+1,str1.length-1] === str2[0,i] + str1[i+1,str1.length-1]
+		return true if str1[0,i] + str1[i+1,str1.length-1] === str2[0,i] + str2[i+1,str1.length-1]
 	end
 	false
 end
@@ -531,12 +524,30 @@ def added_or_removed_one(str1, str2)
 	return false if str1.length+1 != str2.length and str1.length-1 != str2.length
 	short, long = [str1, str2].sort_by{|x| x.length}
 	for i in (0..long.length-1 ) do
-		return true if long[0,i] + str1[i+1, str1.length-1] === short
+		return true if long[0,i] + long[i+1, str1.length] === short
 	end
 	false
 end
 
-puts added_or_removed_one("hello", "hello")
+
+def valid_pair(str1, str2)
+	return false if changed_one(str1, str2) and added_or_removed_one(str1,str2)
+	return true if changed_one(str1, str2) or added_or_removed_one(str1,str2)
+	false
+end
+
+def is_word_chain(arr)
+	for i in (0..arr.length-2) do
+		return false if not valid_pair(arr[i], arr[i+1])
+	end
+	true
+
+end
+
+
+
+puts is_word_chain(["meek", "meet", "meat", "teal"])
+puts valid_pair("meat","teal")
 
 
 def split(str)
@@ -559,3 +570,14 @@ def split(str)
 	end
 	out
 end
+def widen_streets(arr, n)
+	arr.map{|x| x.gsub("   ", " @ ").split.join(" " * n).tr("@", " ")}
+end
+
+puts widen_streets([
+	"###   ## #",
+	"### # ## #",
+	"### # ## #",
+	"### # ## #",
+	"### # ## #"
+], 3).to_s
