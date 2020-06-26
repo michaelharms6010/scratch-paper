@@ -584,4 +584,21 @@ def can_build(arr)
 	true
 end
 
-puts can_build(['a', 'at', 'ate', 'late', 'plate', 'plates'])
+def id_mtrx(n)
+	out = []
+	return "Error" if n.class != Integer 
+	if n < 0
+		n=n.abs
+		for i in 0..n-1 do
+			out.push([0] * n)
+			out[i][-1-i] = 1
+		end
+	else 
+		for i in 0..n-1 do
+			out.push([0] * n)
+			out[i][i] = 1
+		end
+	end
+	out
+end
+print id_mtrx(1)
