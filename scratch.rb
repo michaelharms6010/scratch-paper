@@ -601,4 +601,19 @@ def id_mtrx(n)
 	end
 	out
 end
-print id_mtrx(1)
+
+
+
+def larger(f,g)
+	puts [f[] <=> g[]]
+end
+
+def ascii_sum(str)
+	str.chars.reduce(0){|sum, x| sum + x.ord.to_i}
+end
+
+def ascii_sort(arr)
+	[{word: arr[0], sum: ascii_sum(arr[0])}, {word: arr[1], sum: ascii_sum(arr[1])}].sort_by{|x| x[:sum]}[0][:word]
+end
+
+puts ascii_sort(["hey", "there"])
