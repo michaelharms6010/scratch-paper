@@ -616,4 +616,50 @@ def ascii_sort(arr)
 	[{word: arr[0], sum: ascii_sum(arr[0])}, {word: arr[1], sum: ascii_sum(arr[1])}].sort_by{|x| x[:sum]}[0][:word]
 end
 
-puts ascii_sort(["hey", "there"])
+taddrs = ["t1hCmeTs1X1mrAMNbKcdoefsnHfVYRgVkDG",
+"t1hApMeq7cJUAE6dy1Jep9Ji6dx2WyWsK6s",
+"t1h9hbmAi3Ra2GrJKryU9pSknpHHkHnNH4a",
+"t1h7nHxtoaPpD8zyotxrwShwFDsgUfU83ZA",
+"t1h7KUySW4AJRDSbWH5f15kJ74ZaD61DGR7",
+"t1h67VxcUCFdCmN2PgSZaRbkUu8J6kgxK8q",
+"t1h62nMom6nDYaarp9yuTDzmjvRzrg1zJPS",
+"t1h4TEnPpeFzGA3ej62K6VdvJburSppwKhf",
+"t1h1hsY2TviC4STXSXkSJogqUNG6uXBE3Cv",
+"t1h1cRNPozdXDGqkhifs3fwNTwXFNpNwePP",
+"t1gxR6jBmRnFFEGDGAAFM3hGmQiVLRahhPb",
+"t1gwC5U4zSGVTwGmcwrZjuziQoH8PXhBbaN",
+"t1gwAP85gSRuTo8TsC18HFDX9hBVcqyjY7z",
+"t1gvxQqDJoZFos84LvAedigiphEvszVcKnD"]
+
+def taddr_analysis(arr)
+	alphabet = [*("A".."Z"),*("a".."z"), *("0".."9")]
+	hash = {}
+	arr.map{|x| x[2,33]}.each do |taddr|
+		taddr.chars.each do |char|
+			if hash[char]
+				hash[char] += 1
+			else
+				hash[char] = 1
+			end
+		end
+	end
+	invalid = alphabet.select{|x| !hash.keys.include?(x)}
+	invalid.to_s
+end
+
+def seesaw(num)
+	num = num.to_s.chars.map{|x| x.to_i}
+	m = num.length / 2
+	left =  num[0,m].reduce(0){|sum, x| sum + x}
+	right = num[-1-m, m].reduce(0){|sum, x| sum + x}
+	left == right ? "balanced" : left > right ? "left" : "right"
+end
+
+def seesaw2(num)
+	num = num.to_s
+	m = num.length / 2
+	left, right =  num[0,m].to_i, num[-m, m].to_i
+	left == right ? "balanced" : left > right ? "left" : "right"
+end
+
+puts seesaw2(123123)
